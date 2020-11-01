@@ -21,10 +21,10 @@ def evaluating_change_point(true, prediction, metric='nab', numenta_time=None):
         def single_binary(true,prediction):
             true_ = true == 1 
             prediction_ = prediction == 1
-            TP = (true_ * prediction_).sum()
-            TN = (~true_ * ~prediction_).sum()
-            FP = (~true_ * prediction_).sum()
-            FN = (true_ * ~prediction_).sum()
+            TP = (true_ & prediction_).sum()
+            TN = (~true_ & ~prediction_).sum()
+            FP = (~true_ & prediction_).sum()
+            FN = (true_ & ~prediction_).sum()
             return TP,TN,FP,FN
             
         if type(true) != type(list()):

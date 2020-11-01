@@ -1,4 +1,7 @@
-def evaluating_change_point(true,prediction, metric='nab',numenta_time=None):
+import pandas as pd
+import numpy as np
+
+def evaluating_change_point(true, prediction, metric='nab', numenta_time=None):
     """
     true - both:
                 list of pandas Series with binary int labels
@@ -16,12 +19,12 @@ def evaluating_change_point(true,prediction, metric='nab',numenta_time=None):
         prediction - trupredicted binary series with 1 as anomalies
         """
         def single_binary(true,prediction):
-            true_ =   true == 1 
+            true_ = true == 1 
             prediction_ = prediction == 1
-            TP = (true_ * prediction_).sum()
-            TN = (~true_ * ~prediction_).sum()
-            FP = (~true_ * prediction_).sum()
-            FN = (true_ * ~prediction_).sum()
+            TP = (true_ & prediction_).sum()
+            TN = (~true_ & ~prediction_).sum()
+            FP = (~true_ & prediction_).sum()
+            FN = (true_ & ~prediction_).sum()
             return TP,TN,FP,FN
             
         if type(true) != type(list()):
@@ -145,7 +148,7 @@ def evaluating_change_point(true,prediction, metric='nab',numenta_time=None):
                 Scores_perfect.append(len(alist)*A_tp)
                 Scores_null.append(len(alist)*A_fn)
             return np.array([np.array(Scores),np.array(Scores_null) ,np.array(Scores_perfect)])
-       #=-----         
+       #======      
         if type(prediction) != type(list()):
             matrix = single_evaluate_nab(detecting_boundaries, prediction, table_of_coef=table_of_coef)
         else:
@@ -187,9 +190,3 @@ def evaluating_change_point(true,prediction, metric='nab',numenta_time=None):
         average_delay(detecting_boundaries,prediction)
     elif metric== 'binary':
         binary(true,prediction)
-        
-    
-
-
-
-    
