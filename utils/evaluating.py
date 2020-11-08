@@ -62,7 +62,7 @@ def evaluating_change_point(true, prediction, metric='nab', numenta_time=None):
                 missing, detectHistory = missing+missing_, detectHistory+detectHistory_
 
         print('Average delay',pd.Series(detectHistory).mean())
-        print(f'Missing values: {missing}')
+        print(f'A number of missed CPs = {missing}')
     
     def evaluate_nab(detecting_boundaries, prediction, table_of_coef=None):
         """
