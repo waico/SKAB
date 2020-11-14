@@ -91,7 +91,7 @@ def evaluating_change_point(true, prediction, metric='nab', numenta_time=None):
         Scores_perfect: numpy array, shape 3, float
             Perfect Score for 'Standart','LowFP','LowFN' profile  
         """
-        def single_evaluate_nab(detecting_boundaries, prediction, table_of_coef=None):
+        def single_evaluate_nab(detecting_boundaries, prediction, table_of_coef=None,name_of_dataset=None):
             if table_of_coef is None:
                 table_of_coef = pd.DataFrame([[1.0,-0.11,1.0,-1.0],
                                      [1.0,-0.22,1.0,-1.0],
@@ -127,8 +127,7 @@ def evaluating_change_point(true, prediction, metric='nab', numenta_time=None):
                     slow_width = int(len(win_fault)/4)
 
                     if len(win_fault) + slow_width >= len(win_space):
-        #                    не совсем так правильно лелать
-                        print('большая ширина плавного переходы сигмойды')
+                        print(f'Intersection of the windows of too wide widths for dataset {name_of_dataset}')
                         win_fault_slow = win_fault.copy()
                     else:
                         win_fault_slow= win_space[:len(win_fault)  +  slow_width]
@@ -138,7 +137,7 @@ def evaluating_change_point(true, prediction, metric='nab', numenta_time=None):
                     if win_fault_slow.sum() == 0:
                         score+=A_fn
                     else:
-                        #берем первый индекс
+                        #to get the first index
                         tr = pd.Series(win_fault_slow.values,index = range(-len(win_fault),len(win_fault_slow)-len(win_fault)))
                         tr_values= tr[tr==1].index[0]
                         tr_score = sigm_scale(tr_values, A_tp,A_fp,slow_width)
@@ -154,7 +153,7 @@ def evaluating_change_point(true, prediction, metric='nab', numenta_time=None):
         else:
             matrix = np.zeros((3,3))
             for i in range(len(prediction)):
-                matrix_ = single_evaluate_nab(detecting_boundaries[i], prediction[i], table_of_coef=table_of_coef)
+                matrix_ = single_evaluate_nab(detecting_boundaries[i], prediction[i], table_of_coef=table_of_coef,name_of_dataset=i)
                 matrix = matrix + matrix_      
                 
         desc = ['Standart','LowFP','LowFN'] 
