@@ -5,16 +5,16 @@ This repository contains the data provided by the IIot testbed system for evalua
 > **A:** The data folder containes datasets from the benchmark. The structure of the data folder is following:
 
     .
-    ├── data                    # Data files and processing Jupyter Notebook
-	│   ├── Load data.ipynb     # Jupyter Notebook to load all data
-	│   ├── anomaly-free        # 
-	│   │   ├── anomal-free.csv # Data obtained from the experiments with normal mode
-	│   ├── valve1              # Data obtained from the experiments with closing the valve at the outlet of the flow from the pump.
+    ├── data                        # Data files and processing Jupyter Notebook
+	│   ├── Load data.ipynb         # Jupyter Notebook to load all data
+	│   ├── anomaly-free         
+	│   │   ├── anomal-free.csv     # Data obtained from the experiments with normal mode
+	│   ├── valve1                  # Data obtained from the experiments with closing the valve at the outlet of the flow from the pump.
 	│   │   ├── 1.csv            
 	│   │   ├── 2.csv            
 	│   │   ├── 3.csv            
 	│   │   ├── 4.csv            	
-	│   ├── valve2              # Data obtained from the experiments with closing the valve at the flow inlet to the pump.
+	│   ├── valve2                  # Data obtained from the experiments with closing the valve at the flow inlet to the pump.
 	│   │   ├── 1.csv            
 	│   │   ├── 2.csv            
 	│   │   ├── 3.csv            
@@ -32,21 +32,28 @@ This repository contains the data provided by the IIot testbed system for evalua
 	│   │   ├── 14.csv           
 	│   │   ├── 15.csv           
 	│   │   ├── 16.csv           
-	│   ├── other               # Data obtained from the other experiments
-	│   │   ├── 13.csv          # Sharply behavior of rotor imbalance
-	│   │   ├── 14.csv          # Linear behavior of rotor imbalance
-	│   │   ├── 15.csv          # Step behavior of rotor imbalance
-	│   │   ├── 16.csv          # Dirac delta function behavior of rotor imbalance
-	│   │   ├── 17.csv          # Exponential behavior of rotor imbalance
-	│   │   ├── 18.csv          # The slow increase in the amount of water in the circuit
-	│   │   ├── 19.csv          # The sudden increase in the amount of water in the circuit
-	│   │   ├── 20.csv          # Draining water from the tank until cavitation
-	│   │   ├── 21.csv          # Two-phase flow supply to the pump inlet (cavitation)
-	│   │   ├── 22.csv          # Water supply of increased temperature
-    ├── test                    # Automated tests (alternatively `spec` or `tests`)
-    ├── utils                   # Tools and utilities
-    │   ├── evaluating.py       # 
-    │   ├── t2.py               # 
+	│   ├── other                   # Data obtained from the other experiments
+	│   │   ├── 13.csv              # Sharply behavior of rotor imbalance
+	│   │   ├── 14.csv              # Linear behavior of rotor imbalance
+	│   │   ├── 15.csv              # Step behavior of rotor imbalance
+	│   │   ├── 16.csv              # Dirac delta function behavior of rotor imbalance
+	│   │   ├── 17.csv              # Exponential behavior of rotor imbalance
+	│   │   ├── 18.csv              # The slow increase in the amount of water in the circuit
+	│   │   ├── 19.csv              # The sudden increase in the amount of water in the circuit
+	│   │   ├── 20.csv              # Draining water from the tank until cavitation
+	│   │   ├── 21.csv              # Two-phase flow supply to the pump inlet (cavitation)
+	│   │   ├── 22.csv              # Water supply of increased temperature
+    ├── baselines                   # Testing algorithms using the benchmark
+	│   ├── hotelling.ipynb         # Testing by using Hotelling's T-squared statistics statistic
+	│   ├── hotelling and q.ipynb   # Testing by using Hotelling and Q statistic
+	│   ├── isolation_forest.ipynb  # Testing by using Isolation Forest algorithm
+	│   ├── autoencoder.ipynb       # Testing by using Autoencoder architecture
+	│   ├── autoencoder.h5          # Obtained weights of the specific Autoencoder model
+	│   ├── lstm.ipynb              # Testing by using Long Short Term Memory architecture 	
+	│   ├── lstm.h5                 # Obtained weights of the specific LSTM model 	
+    ├── utils                       # Tools and utilities
+    │   ├── evaluating.py           # Implemenation of FAR, MAR, ADD, NAB, evaluation metrics 
+    │   ├── t2.py                   # Implemenation of Hotelling and Q statistics
     ├── .gitignore
     ├── LICENSE
     └── README.md
@@ -60,8 +67,9 @@ We have calculated the results for five quite common anomaly detection algorithm
 - LSTM-based RNN;
 - Feed-Forward Autoencoder.
 
-## utils
-The utils folder contains needed functions for the experiments and code for algorithms evaluation.
+<!--## utils
+The utils folder contains needed functions for the experiments and code for algorithms evaluation.}
+-->
 
 ## Leaderboard (Scoreboard)
 Here we propose an initial leaderboard for SkAB v1.0 both for outlier and changepoint detection problems.
