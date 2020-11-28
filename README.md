@@ -35,6 +35,12 @@ Autoencoder | 15.59 | 0.78 | 20.91
 Isolation forest | ***37.53*** | ***17.09*** | ***45.02***
 Null detector | 0 | 0 | 0
 
+## Citation
+Please cite our project in your publications if it helps your research.
+```
+Iurii D. Katser and Vyacheslav O. Kozitsin, “Skoltech Anomaly Benchmark (SKAB).” Kaggle, 2020, doi: 10.34740/KAGGLE/DSV/1693952.
+```
+
 ## data
 > **A:** The data folder containes datasets from the benchmark. The structure of the data folder is following:
 
