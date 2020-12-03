@@ -1,3 +1,5 @@
+![skab](skab.png)
+
 # SKAB Skoltech Anomaly Benchmark
 This repository contains the data provided by the IIot testbed system for evaluating Anomaly and Changepoint Detection algorithms.
 
@@ -11,7 +13,7 @@ We have calculated the results for five quite common anomaly detection algorithm
 - Feed-Forward Autoencoder.
 
 ## Leaderboard (Scoreboard)
-Here we propose an initial leaderboard for SkAB v1.0 both for outlier and changepoint detection problems.
+Here we propose an initial leaderboard for SKAB v1.0 both for outlier and changepoint detection problems.
 
 **Outlier detection problem**
 | Algorithm | FAR, % | MAR, % |
