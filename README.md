@@ -19,19 +19,22 @@ The SKAB v1.0 corpus contains 35 individual data files in .csv format. Each file
 
 # Leaderboard (Scoreboard)
 Here we propose the leaderboard for SKAB v1.0 both for outlier and changepoint detection problems. You can also present and evaluate your algorithm using SKAB on [kaggle](https://www.kaggle.com/yuriykatser/skoltech-anomaly-benchmark-skab).
+The results in the tables are calculated in the python notebooks from the [baselines](baselines/) folder.
 
 ## Outlier detection problem
+*Sorted by FAR, both for FAR and MAR less is better*
 | Algorithm | FAR, % | MAR, % |
 |---|---|---|
-Perfect detector | 0 | 0 
-T-squared+Q (PCA) | ***5.09*** | 86.1 
-Isolation forest | 6.86 | 72.09 
-Autoencoder | 7.56 | 66.57
-T-squared | 12.14 | 52.56 
-LSTM | 14.4 | ***40.44***
+Perfect detector | 0 | 0
 Null detector | 0 | 100
+T-squared+Q (PCA) | ***5.09*** | 86.1
+Isolation forest | 6.86 | 72.09
+Autoencoder | 7.56 | 66.57
+T-squared | 12.14 | 52.56
+LSTM | 14.4 | ***40.44***
 
 ## Changepoint detection problem
+*Sorted by NAB (standart), for all metrics bigger is better*
 | Algorithm | NAB (standart) | NAB (lowFP) | NAB (LowFN) |
 |---|---|---|---|
 Perfect detector | 100 | 100 | 100 
@@ -43,7 +46,7 @@ T-squared+Q (PCA) | 5.83 | 4.8 | 6.1
 Null detector | 0 | 0 | 0
 
 # Baselines
-The baselines folder contains python notebooks with the code for the initial leaderboard results reproducing.
+The baselines folder contains python notebooks with the code for the proposed leaderboard results reproducing.
 We have calculated the results for five quite common anomaly detection algorithms:
 - Hotelling's T-squared statistics;
 - Hotelling's T-squared statistics + Q statistics based on PCA;
