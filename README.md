@@ -15,7 +15,7 @@ The IIot testbed system is located in the Skolkovo Institute of Science and Tech
 All the details regarding the testbed and the experimenting process are presented in the position paper (*currently submitted for publication*).
 
 # Datasets
-The SKAB v1.0 corpus contains 35 individual data files in .csv format. Each file represents a single experiment and contains a single anomaly. The dataset represents a multivariate time series collected from the sensors installed on the testbed. The [data](data/) folder containes datasets from the benchmark. The structure of the data folder is presented in [structure](structure.md) file.
+The SKAB v1.0 corpus contains 35 individual data files in .csv format. Each file represents a single experiment and contains a single anomaly. The dataset represents a multivariate time series collected from the sensors installed on the testbed. The [data](data/) folder containes datasets from the benchmark. The structure of the data folder is presented in [structure](./data/READM.md) file.
 
 # Leaderboard (Scoreboard)
 Here we propose the leaderboard for SKAB v1.0 both for outlier and changepoint detection problems. You can also present and evaluate your algorithm using SKAB on [kaggle](https://www.kaggle.com/yuriykatser/skoltech-anomaly-benchmark-skab).
