@@ -12,7 +12,9 @@ SKAB consists of the following artifacts:
 * Baselines: python notebooks with several well-known anomaly detection algorithms.
 
 The IIot testbed system is located in the Skolkovo Institute of Science and Technology.
-All the details regarding the testbed and the experimenting process are presented in the position paper (*currently submitted for publication*).
+All the details regarding the testbed and the experimenting process are presented in the following artifacts:
+- Position paper (*currently submitted for publication*)
+- [Slides about the project](https://drive.google.com/open?id=1dHUevwPp6ftQCEKnRgB4KMp9oLBMSiDM)
 
 # Datasets
 The SKAB v0.9 corpus contains 35 individual data files in .csv format. Each file represents a single experiment and contains a single anomaly. The dataset represents a multivariate time series collected from the sensors installed on the testbed. The [data](data/) folder containes datasets from the benchmark. The structure of the data folder is presented in [structure](./data/README.md) file.
@@ -59,6 +61,3 @@ Please cite our project in your publications if it helps your research.
 ```
 Iurii D. Katser and Vyacheslav O. Kozitsin, “Skoltech Anomaly Benchmark (SKAB).” Kaggle, 2020, doi: 10.34740/KAGGLE/DSV/1693952.
 ```
-
-
-
