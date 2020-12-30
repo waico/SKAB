@@ -11,7 +11,7 @@ SKAB consists of the following artifacts:
 * Python modules for algorithms’ evaluation.
 * Baselines: python notebooks with several well-known anomaly detection algorithms.
 
-The IIot testbed system is located in the Skolkovo Institute of Science and Technology.
+The IIot testbed system is located in the Skolkovo Institute of Science and Technology (Skoltech).
 All the details regarding the testbed and the experimenting process are presented in the following artifacts:
 - Position paper (*currently submitted for publication*)
 - [Slides about the project](https://drive.google.com/open?id=1dHUevwPp6ftQCEKnRgB4KMp9oLBMSiDM)
