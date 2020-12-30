@@ -1,6 +1,6 @@
 ![skab](skab.png)
 
-# About SKAB
+# About SKAB [![DOI](https://img.shields.io/badge/DOI-10.34740/kaggle/dsv/1693952-blue.svg)](https://doi.org/10.34740/KAGGLE/DSV/1693952)
 We propose the Skoltech Anomaly Benchmark (SKAB) designed for evaluating the anomaly detection algorithms. SKAB allows working with two main problems (there are two markups for anomalies):
 * Outlier detection (anomalies considered and marked up as single-point anomalies)
 * Changepoint detection (anomalies considered and marked up as collective anomalies)
