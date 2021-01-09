@@ -26,7 +26,7 @@
       │   ├── 14.csv           
       │   ├── 15.csv           
       │   └── 16.csv           
-      └── other                   # Data obtained from the other experiments
+      └── other                   # Data obtained from the other experiments          
           ├── 13.csv              # Sharply behavior of rotor imbalance
           ├── 14.csv              # Linear behavior of rotor imbalance
           ├── 15.csv              # Step behavior of rotor imbalance
