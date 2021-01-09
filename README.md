@@ -24,7 +24,7 @@ Here we propose the leaderboard for SKAB v0.9 both for outlier and changepoint d
 The results in the tables are calculated in the python notebooks from the [baselines](baselines/) folder.
 
 ## Outlier detection problem
-*Sorted by FAR, both for FAR and MAR less is better*
+*Sorted by FAR, both for FAR and MAR less is better*  
 | Algorithm | FAR, % | MAR, % |
 |---|---|---|
 Perfect detector | 0 | 0
