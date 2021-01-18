@@ -27,6 +27,8 @@ The SKAB v0.9 corpus contains 35 individual data files in .csv format. Each file
 - `Thermocouple` - Represents the temperature of the fluid in the circulation loop (The degree Celsius)
 - `Voltage` - Shows the voltage on the electric motor (Volt)
 - `RateRMS` - Represents the circulation flow rate of the fluid inside the loop (Liter per minute)
+- `anomaly` - Shows if the point is anomalous (0 or 1)
+- `changepoint` - Shows if the point is a changepoint for collective anomalies (0 or 1)
 
 # Leaderboard (Scoreboard)
 Here we propose the leaderboard for SKAB v0.9 both for outlier and changepoint detection problems. You can also present and evaluate your algorithm using SKAB on [kaggle](https://www.kaggle.com/yuriykatser/skoltech-anomaly-benchmark-skab).
