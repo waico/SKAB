@@ -17,7 +17,16 @@ All the details regarding the testbed and the experimenting process are presente
 - [Slides about the project](https://drive.google.com/open?id=1dHUevwPp6ftQCEKnRgB4KMp9oLBMSiDM)
 
 # Datasets
-The SKAB v0.9 corpus contains 35 individual data files in .csv format. Each file represents a single experiment and contains a single anomaly. The dataset represents a multivariate time series collected from the sensors installed on the testbed. The [data](data/) folder containes datasets from the benchmark. The structure of the data folder is presented in [structure](./data/README.md) file.
+The SKAB v0.9 corpus contains 35 individual data files in .csv format. Each file represents a single experiment and contains a single anomaly. The dataset represents a multivariate time series collected from the sensors installed on the testbed. The [data](data/) folder containes datasets from the benchmark. The structure of the data folder is presented in [structure](./data/README.md) file. Columns in each data file are following:
+- `datetime` - Represents dates and times of the moment when the value is written to the database (YYYY-MM-DD hh:mm:ss)
+- `Accelerometer1RMS` - Shows a vibration acceleration (Amount of g units)
+- `Accelerometer2RMS` - Shows a vibration acceleration (Amount of g units)
+- `Current` - Shows the amperage on the electric motor (Ampere)
+- `Pressure` - Represents the pressure in the loop after the water pump (Bar)
+- `Temperature` - Shows the temperature of the engine body (The degree Celsius)
+- `Thermocouple` - Represents the temperature of the fluid in the circulation loop (The degree Celsius)
+- `Voltage` - Shows the voltage on the electric motor (Volt)
+- `RateRMS` - Represents the circulation flow rate of the fluid inside the loop (Liter per minute)
 
 # Leaderboard (Scoreboard)
 Here we propose the leaderboard for SKAB v0.9 both for outlier and changepoint detection problems. You can also present and evaluate your algorithm using SKAB on [kaggle](https://www.kaggle.com/yuriykatser/skoltech-anomaly-benchmark-skab).
