@@ -2,7 +2,7 @@
   └── data                        # Data files and processing Jupyter Notebook
       ├── Load data.ipynb         # Jupyter Notebook to load all data
       ├── anomaly-free         
-      │   └── anomal-free.csv     # Data obtained from the experiments with normal mode
+      │   └── anomaly-free.csv     # Data obtained from the experiments with normal mode
       ├── valve1                  # Data obtained from the experiments with closing the valve at the outlet of the flow from the pump.
       │   ├── 1.csv            
       │   ├── 2.csv            
