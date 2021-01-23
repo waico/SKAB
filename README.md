@@ -1,6 +1,6 @@
 ![skab](skab.png)
 
-*SKAB (Skoltech Anomaly Benchmark) is designed for evaluating algorithms for anomaly detection. The benchmark currently includes 30+ datasets plus Python modules for algorithms’ evaluation. Each dataset represents a multivariate time series collected from the sensors installed on the testbed. All instances are labeled for evaluating the results of solving outlier detection and changepoint detection problems.*
+❗️❗️❗️**The current version of SKAB (v0.9) contains 34 datasets with collective anomalies. But the upcoming update to v1.0 (probably up to the summer of 2021) will contain 300+ additional files with point and collective anomalies. It will make SKAB one of the largest changepoint-containing benchmarks, especially in the technical field.**
 
 # About SKAB [![DOI](https://img.shields.io/badge/DOI-10.34740/kaggle/dsv/1693952-blue.svg)](https://doi.org/10.34740/KAGGLE/DSV/1693952)
 We propose the Skoltech Anomaly Benchmark (SKAB) designed for evaluating the anomaly detection algorithms. SKAB allows working with two main problems (there are two markups for anomalies):
