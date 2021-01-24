@@ -76,4 +76,10 @@ Iurii D. Katser and Vyacheslav O. Kozitsin, “Skoltech Anomaly Benchmark (SKAB)
 ```
 
 # Notable mentions
-- [List of datasets for machine-learning research](https://en.wikipedia.org/wiki/List_of_datasets_for_machine-learning_research#Anomaly_data)
+<details>
+  <summary>List of links</summary>
+  
+  - [List of datasets for machine-learning research](https://en.wikipedia.org/wiki/List_of_datasets_for_machine-learning_research#Anomaly_data)
+  - [awesome-TS-anomaly-detection](https://github.com/rob-med/awesome-TS-anomaly-detection)
+
+</details>
