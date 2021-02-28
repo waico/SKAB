@@ -56,6 +56,7 @@ Perfect detector | 100 | 100 | 100
 Isolation forest | ***37.53*** | ***17.09*** | ***45.02***
 LSTM | 25.82 | 9.06 | 31.83
 T-squared | 17.87 | 3.44 | 23.2
+ARIMAFD | 16.06 | 14.03 | 17.12
 Autoencoder | 15.59 | 0.78 | 20.91
 T-squared+Q (PCA) | 5.83 | 4.8 | 6.1
 Null detector | 0 | 0 | 0
