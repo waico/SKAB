@@ -77,6 +77,7 @@ Iurii D. Katser and Vyacheslav O. Kozitsin, “Skoltech Anomaly Benchmark (SKAB)
 ```
 
 # Notable mentions
+SKAB is acknowledged by some ML resources.
 <details>
   <summary>List of links</summary>
   
