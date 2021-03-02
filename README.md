@@ -11,7 +11,7 @@ SKAB consists of the following artifacts:
 * Datasets.
 * Leaderboard (scoreboard).
 * Python modules for algorithms’ evaluation.
-* Baselines: python notebooks with several well-known anomaly detection algorithms.
+* Notebooks: python notebooks with anomaly detection algorithms.
 
 The IIot testbed system is located in the Skolkovo Institute of Science and Technology (Skoltech).
 All the details regarding the testbed and the experimenting process are presented in the following artifacts:
@@ -46,7 +46,8 @@ T-squared+Q (PCA) | ***5.09*** | 86.1
 Isolation forest | 6.86 | 72.09
 Autoencoder | 7.56 | 66.57
 T-squared | 12.14 | 52.56
-LSTM | 14.4 | ***40.44***
+LSTM | 14.4 | 40.44
+MSCRED | 25.17 | ***18.03***
 
 ## Changepoint detection problem
 *Sorted by NAB (standart), for all metrics bigger is better*
@@ -55,20 +56,26 @@ LSTM | 14.4 | ***40.44***
 Perfect detector | 100 | 100 | 100 
 Isolation forest | ***37.53*** | ***17.09*** | ***45.02***
 LSTM | 25.82 | 9.06 | 31.83
+MSCRED | 18.67 | 14.92 | 20.14
 T-squared | 17.87 | 3.44 | 23.2
-ARIMAFD | 16.06 | 14.03 | 17.12
+ArimaFD | 16.06 | 14.03 | 17.12
 Autoencoder | 15.59 | 0.78 | 20.91
 T-squared+Q (PCA) | 5.83 | 4.8 | 6.1
 Null detector | 0 | 0 | 0
 
-# Baselines
-The baselines folder contains python notebooks with the code for the proposed leaderboard results reproducing.
+# Notebooks
+The Notebooks folder contains python notebooks with the code for the proposed leaderboard results reproducing.
+
 We have calculated the results for five quite common anomaly detection algorithms:
 - Hotelling's T-squared statistics;
 - Hotelling's T-squared statistics + Q statistics based on PCA;
 - Isolation forest;
-- LSTM-based RNN;
+- LSTM-based NN;
 - Feed-Forward Autoencoder.
+
+Additionaly to the repository were added the results of the following algorithms:
+- ArimaFD;
+- MSCRED.
 
 # Citation
 Please cite our project in your publications if it helps your research.
