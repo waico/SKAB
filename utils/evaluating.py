@@ -37,6 +37,7 @@ def evaluating_change_point(true, prediction, metric='nab', numenta_time=None):
     
         print(f'False Alarm Rate {round(FP/(FP+TN)*100,2)} %' )
         print(f'Missing Alarm Rate {round(FN/(FN+TP)*100,2)} %')
+        print(f'F1 metric {round(TP/(TP+(FN+FP)/2),2)}')
     
     def average_delay(detecting_boundaries, prediction):
         

@@ -38,15 +38,15 @@ The results in the tables are calculated in the python notebooks from the [basel
 
 ## Outlier detection problem
 *Sorted by FAR, both for FAR and MAR less is better*  
-| Algorithm | FAR, % | MAR, % |
-|---|---|---|
-Perfect detector | 0 | 0
-Null detector | 0 | 100
-T-squared+Q (PCA) | ***5.09*** | 86.1
-Isolation forest | 6.86 | 72.09
-Autoencoder | 7.56 | 66.57
-T-squared | 12.14 | 52.56
-LSTM | 14.4 | ***40.44***
+| Algorithm | FAR, % | MAR, % | F1
+|---|---|---|---|
+Perfect detector | 0 | 0 | 100 |
+Null detector | 0 | 100 | 0 |
+T-squared+Q (PCA) | ***5.09*** | 86.1| х |
+Isolation forest | 6.86 | 72.09| х |
+Autoencoder | 7.56 | 66.57| х |
+T-squared | 12.14 | 52.56| х |
+LSTM | 14.4 | ***40.44***| х |
 
 ## Changepoint detection problem
 *Sorted by NAB (standart), for all metrics bigger is better*
