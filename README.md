@@ -34,45 +34,33 @@ The SKAB v0.9 corpus contains 35 individual data files in .csv format. Each file
 
 # Leaderboard (Scoreboard)
 Here we propose the leaderboard for SKAB v0.9 both for outlier and changepoint detection problems. You can also present and evaluate your algorithm using SKAB on [kaggle](https://www.kaggle.com/yuriykatser/skoltech-anomaly-benchmark-skab).
-The results in the tables are calculated in the python notebooks from the [baselines](baselines/) folder.
+The results in the tables are calculated in the python notebooks from the [notebooks](notebooks/) folder.
 
 ## Outlier detection problem
-*Sorted by FAR, both for FAR and MAR less is better*  
-<<<<<<< HEAD
-| Algorithm | FAR, % | MAR, % | F1
+*Sorted by F1; for F1 bigger is better; both for FAR and MAR less is better*  
+| Algorithm | F1 | FAR, % | MAR, %
 |---|---|---|---|
-Perfect detector | 0 | 0 | 100 |
-Null detector | 0 | 100 | 0 |
-T-squared+Q (PCA) | ***5.09*** | 86.1| х |
-Isolation forest | 6.86 | 72.09| х |
-Autoencoder | 7.56 | 66.57| х |
-T-squared | 12.14 | 52.56| х |
-LSTM | 14.4 | ***40.44***| х |
-=======
-| Algorithm | FAR, % | MAR, % |
-|---|---|---|
-Perfect detector | 0 | 0
-Null detector | 0 | 100
-T-squared+Q (PCA) | ***5.09*** | 86.1
-Isolation forest | 6.86 | 72.09
-Autoencoder | 7.56 | 66.57
-T-squared | 12.14 | 52.56
-LSTM | 14.4 | 40.44
-MSCRED | 25.17 | ***18.03***
->>>>>>> 5d281aa8d57d4ca89895acc0266780aae63e568d
+Perfect detector | 1 | 0 | 0
+T-squared+Q (PCA) | ***0.67*** | 13.95 | ***36.32***
+LSTM | 0.64 | 15.4 | 39.93
+MSCRED | 0.64 | 13.56 | 41.16
+T-squared | 0.56 | 12.14 | 52.56
+Autoencoder | 0.45 | 7.56 | 66.57
+Isolation forest | 0.4 | ***6.86*** | 72.09
+Null detector | 0  | 0 | 100
 
 ## Changepoint detection problem
-*Sorted by NAB (standart), for all metrics bigger is better*
+*Sorted by NAB (standart); for all metrics bigger is better*  
 | Algorithm | NAB (standart) | NAB (lowFP) | NAB (LowFN) |
 |---|---|---|---|
 Perfect detector | 100 | 100 | 100 
-Isolation forest | ***37.53*** | ***17.09*** | ***45.02***
-LSTM | 25.82 | 9.06 | 31.83
-MSCRED | 18.67 | 14.92 | 20.14
+Isolation forest | ***37.53*** | 17.09 | ***45.02***
+MSCRED | 28.74 | ***23.43*** | 31.21
+LSTM | 27.09 | 11.06 | 32.68
+T-squared+Q (PCA) | 26.71 | 22.42 | 28.32
 T-squared | 17.87 | 3.44 | 23.2
 ArimaFD | 16.06 | 14.03 | 17.12
 Autoencoder | 15.59 | 0.78 | 20.91
-T-squared+Q (PCA) | 5.83 | 4.8 | 6.1
 Null detector | 0 | 0 | 0
 
 # Notebooks

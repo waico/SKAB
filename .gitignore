@@ -1,4 +1,7 @@
 .DS_Store
+data/.DS_Store
+notebooks/venv/
+notebooks/*.h5
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
