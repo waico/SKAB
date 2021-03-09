@@ -82,6 +82,17 @@ Please cite our project in your publications if it helps your research.
 ```
 Iurii D. Katser and Vyacheslav O. Kozitsin, “Skoltech Anomaly Benchmark (SKAB).” Kaggle, 2020, doi: 10.34740/KAGGLE/DSV/1693952.
 ```
+Or in BibTeX format:
+```
+@misc{skab,
+  author = {Katser, Iurii D. and Kozitsin, Vyacheslav O.},
+  title = {Skoltech Anomaly Benchmark (SKAB)},
+  year = {2020},
+  publisher = {Kaggle},
+  howpublished = {\url{https://www.kaggle.com/dsv/1693952}},
+  DOI = {10.34740/KAGGLE/DSV/1693952}
+}
+```
 
 # Notable mentions
 SKAB is acknowledged by some ML resources.
