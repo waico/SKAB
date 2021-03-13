@@ -19,7 +19,7 @@ All the details regarding the testbed and the experimenting process are presente
 - [Slides about the project](https://drive.google.com/open?id=1dHUevwPp6ftQCEKnRgB4KMp9oLBMSiDM)
 
 # Datasets
-The SKAB v0.9 corpus contains 35 individual data files in .csv format. Each file represents a single experiment and contains a single anomaly. The dataset represents a multivariate time series collected from the sensors installed on the testbed. The [data](data/) folder contains datasets from the benchmark. The structure of the data folder is presented in [structure](./data/README.md) file. Columns in each data file are following:
+The SKAB v0.9 corpus contains 35 individual data files in .csv format. Each file represents a single experiment and contains a single anomaly. The dataset represents a multivariate time series collected from the sensors installed on the testbed. The [data](data/) folder contains datasets from the benchmark. The structure of the data folder is presented in the [structure](./data/README.md) file. Columns in each data file are following:
 - `datetime` - Represents dates and times of the moment when the value is written to the database (YYYY-MM-DD hh:mm:ss)
 - `Accelerometer1RMS` - Shows a vibration acceleration (Amount of g units)
 - `Accelerometer2RMS` - Shows a vibration acceleration (Amount of g units)
@@ -64,7 +64,7 @@ Autoencoder | 15.59 | 0.78 | 20.91
 Null detector | 0 | 0 | 0
 
 # Notebooks
-The Notebooks folder contains python notebooks with the code for the proposed leaderboard results reproducing.
+The [notebooks](notebooks/) folder contains python notebooks with the code for the proposed leaderboard results reproducing.
 
 We have calculated the results for five quite common anomaly detection algorithms:
 - Hotelling's T-squared statistics;
@@ -74,8 +74,8 @@ We have calculated the results for five quite common anomaly detection algorithm
 - Feed-Forward Autoencoder.
 
 Additionaly to the repository were added the results of the following algorithms:
-- ArimaFD;
-- MSCRED.
+- [ArimaFD](https://github.com/waico/arimafd);
+- [MSCRED](https://ojs.aaai.org/index.php/AAAI/article/view/3942).
 
 # Citation
 Please cite our project in your publications if it helps your research.
