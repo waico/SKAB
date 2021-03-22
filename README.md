@@ -73,7 +73,7 @@ We have calculated the results for five quite common anomaly detection algorithm
 - LSTM-based NN;
 - Feed-Forward Autoencoder.
 
-Additionaly to the repository were added the results of the following algorithms:
+Additionally to the repository were added the results of the following algorithms:
 - [ArimaFD](https://github.com/waico/arimafd);
 - [MSCRED](https://ojs.aaai.org/index.php/AAAI/article/view/3942).
 
@@ -99,7 +99,9 @@ SKAB is acknowledged by some ML resources.
 <details>
   <summary>List of links</summary>
   
+  - [Anomaly Detection Learning Resources](https://github.com/yzhao062/anomaly-detection-resources#34-datasets)
+  - [awesome-TS-anomaly-detection](https://github.com/rob-med/awesome-TS-anomaly-detection#benchmark-datasets)
   - [List of datasets for machine-learning research](https://en.wikipedia.org/wiki/List_of_datasets_for_machine-learning_research#Anomaly_data)
-  - [awesome-TS-anomaly-detection](https://github.com/rob-med/awesome-TS-anomaly-detection)
+  - [paperswithcode.com](https://paperswithcode.com/dataset/skab)
 
 </details>
