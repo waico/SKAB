@@ -50,25 +50,25 @@ Isolation forest | 0.4 | ***6.86*** | 72.09
 Null detector | 0  | 0 | 100
 
 ## Changepoint detection problem
-*Sorted by NAB (standart); for all metrics bigger is better*  
+*Sorted by NAB (standard); for all metrics bigger is better*  
 *The current leaderboard is obtained with the window size for the NAB detection algorithm equal to 30 sec.*  
-| Algorithm | NAB (standart) | NAB (lowFP) | NAB (LowFN) |
+| Algorithm | NAB (standard) | NAB (lowFP) | NAB (LowFN) |
 |---|---|---|---|
 Perfect detector | 100 | 100 | 100 
 Isolation forest | ***37.53*** | 17.09 | ***45.02***
 MSCRED | 28.74 | ***23.43*** | 31.21
 LSTM | 27.09 | 11.06 | 32.68
 T-squared+Q (PCA) | 26.71 | 22.42 | 28.32
-ruptures* | 24.1 | 21.69 | 25.04
-CPDE** | 23.07 | 20.52 | 24.35
+ruptures** | 24.1 | 21.69 | 25.04
+CPDE*** | 23.07 | 20.52 | 24.35
 T-squared | 17.87 | 3.44 | 23.2
 ArimaFD | 16.06 | 14.03 | 17.12
 Autoencoder | 15.59 | 0.78 | 20.91
 Null detector | 0 | 0 | 0
 
-* The best algorithm (shown) is BinSeg with Mahalanobis cost function. The results are obtained in an unsupervized manner except for knowing by the algorithms the total amount of chagepoint to look for. The full results of various changepoint detection algorithms and ensembles are presented [here](https://github.com/YKatser/CPDE).
+** The best algorithm (shown) is BinSeg with Mahalanobis cost function. The results are obtained in an unsupervized manner except for knowing by the algorithms the total amount of chagepoint to look for. The full results of various changepoint detection algorithms and ensembles are presented [here](https://github.com/YKatser/CPDE).
 
-** The best aggregation function (shown) is WeightedSum with MinAbs scaling function.
+*** The best aggregation function (shown) is WeightedSum with MinAbs scaling function.
 
 # Notebooks
 The [notebooks](notebooks/) folder contains python notebooks with the code for the proposed leaderboard results reproducing.
