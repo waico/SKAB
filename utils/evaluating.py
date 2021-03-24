@@ -13,7 +13,7 @@ def evaluating_change_point(true, prediction, metric='nab', numenta_time=None):
                 
     """
     
-    def binary(true,prediction):      
+    def binary(true, prediction):      
         """
         true - true binary series with 1 as anomalies
         prediction - trupredicted binary series with 1 as anomalies
@@ -35,9 +35,11 @@ def evaluating_change_point(true, prediction, metric='nab', numenta_time=None):
                 TP_,TN_,FP_,FN_ = single_binary(true[i],prediction[i])
                 TP,TN,FP,FN = TP+TP_,TN+TN_,FP+FP_,FN+FN_       
     
+        f1 = round(TP/(TP+(FN+FP)/2), 2)
         print(f'False Alarm Rate {round(FP/(FP+TN)*100,2)} %' )
         print(f'Missing Alarm Rate {round(FN/(FN+TP)*100,2)} %')
-        print(f'F1 metric {round(TP/(TP+(FN+FP)/2),2)}')
+        print(f'F1 metric {f1}')
+        return f1
     
     def average_delay(detecting_boundaries, prediction):
         
@@ -62,8 +64,10 @@ def evaluating_change_point(true, prediction, metric='nab', numenta_time=None):
                 missing_, detectHistory_ = single_average_delay(detecting_boundaries[i], prediction[i])
                 missing, detectHistory = missing+missing_, detectHistory+detectHistory_
 
-        print('Average delay',pd.Series(detectHistory).mean())
+        add = pd.Series(detectHistory).mean()
+        print('Average delay', add)
         print(f'A number of missed CPs = {missing}')
+        return add
     
     def evaluate_nab(detecting_boundaries, prediction, table_of_coef=None):
         """
@@ -92,7 +96,7 @@ def evaluating_change_point(true, prediction, metric='nab', numenta_time=None):
         Scores_perfect: numpy array, shape 3, float
             Perfect Score for 'Standart','LowFP','LowFN' profile  
         """
-        def single_evaluate_nab(detecting_boundaries, prediction, table_of_coef=None,name_of_dataset=None):
+        def single_evaluate_nab(detecting_boundaries, prediction, table_of_coef=None, name_of_dataset=None):
             if table_of_coef is None:
                 table_of_coef = pd.DataFrame([[1.0,-0.11,1.0,-1.0],
                                      [1.0,-0.22,1.0,-1.0],
@@ -104,12 +108,12 @@ def evaluating_change_point(true, prediction, metric='nab', numenta_time=None):
             alist = detecting_boundaries.copy()
             prediction = prediction.copy()
 
-            Scores,Scores_perfect,Scores_null=[],[],[]
-            for profile in ['Standart','LowFP','LowFN']:       
+            Scores, Scores_perfect, Scores_null=[], [], []
+            for profile in ['Standart', 'LowFP', 'LowFN']:       
                 A_tp = table_of_coef['A_tp'][profile]
                 A_fp = table_of_coef['A_fp'][profile]
                 A_fn = table_of_coef['A_fn'][profile]
-                def sigm_scale(y,A_tp,A_fp,window=1):
+                def sigm_scale(y, A_tp, A_fp, window=1):
                     return (A_tp-A_fp)*(1/(1+np.exp(5*y/window))) + A_fp
 
                 #First part
@@ -139,7 +143,7 @@ def evaluating_change_point(true, prediction, metric='nab', numenta_time=None):
                         score+=A_fn
                     else:
                         #to get the first index
-                        tr = pd.Series(win_fault_slow.values,index = range(-len(win_fault),len(win_fault_slow)-len(win_fault)))
+                        tr = pd.Series(win_fault_slow.values,index = range(-len(win_fault), len(win_fault_slow)-len(win_fault)))
                         tr_values= tr[tr==1].index[0]
                         tr_score = sigm_scale(tr_values, A_tp,A_fp,slow_width)
                         score += tr_score
@@ -147,7 +151,7 @@ def evaluating_change_point(true, prediction, metric='nab', numenta_time=None):
                 Scores.append(score)
                 Scores_perfect.append(len(alist)*A_tp)
                 Scores_null.append(len(alist)*A_fn)
-            return np.array([np.array(Scores),np.array(Scores_null) ,np.array(Scores_perfect)])
+            return np.array([np.array(Scores),np.array(Scores_null), np.array(Scores_perfect)])
        #======      
         if type(prediction) != type(list()):
             matrix = single_evaluate_nab(detecting_boundaries, prediction, table_of_coef=table_of_coef)
@@ -157,9 +161,13 @@ def evaluating_change_point(true, prediction, metric='nab', numenta_time=None):
                 matrix_ = single_evaluate_nab(detecting_boundaries[i], prediction[i], table_of_coef=table_of_coef,name_of_dataset=i)
                 matrix = matrix + matrix_      
                 
-        desc = ['Standart','LowFP','LowFN'] 
-        for t in range(3):
-            print(desc[t],' - ', round(100*(matrix[0,t]-matrix[1,t])/(matrix[2,t]-matrix[1,t]),2))
+        results = {}
+        desc = ['Standart', 'LowFP', 'LowFN'] 
+        for t, profile_name in enumerate(desc):
+            results[profile_name] = round(100*(matrix[0,t]-matrix[1,t])/(matrix[2,t]-matrix[1,t]), 2)
+            print(profile_name,' - ', results[profile_name])
+        
+        return results
             
             
     #=========================================================================
@@ -170,23 +178,23 @@ def evaluating_change_point(true, prediction, metric='nab', numenta_time=None):
         
 
     if not metric=='binary':
-        def single_detecting_boundaries(true,numenta_time,true_items):
+        def single_detecting_boundaries(true, numenta_time, true_items):
             detecting_boundaries=[]
             td = pd.Timedelta(numenta_time) if numenta_time is not None else pd.Timedelta((true.index[-1]-true.index[0])/len(true_items))  
             for val in true_items:
-                detecting_boundaries.append([val,val + td])
+                detecting_boundaries.append([val, val + td])
             return detecting_boundaries
         
         if type(true) != type(list()):
-            detecting_boundaries = single_detecting_boundaries(true=true,numenta_time=numenta_time,true_items=true_items)
+            detecting_boundaries = single_detecting_boundaries(true=true, numenta_time=numenta_time, true_items=true_items)
         else:
             detecting_boundaries=[]
             for i in range(len(true)):
-                detecting_boundaries.append(single_detecting_boundaries(true=true[i],numenta_time=numenta_time,true_items=true_items[i]))
+                detecting_boundaries.append(single_detecting_boundaries(true=true[i], numenta_time=numenta_time, true_items=true_items[i]))
 
     if metric== 'nab':
-        evaluate_nab(detecting_boundaries,prediction)
+        return evaluate_nab(detecting_boundaries, prediction)
     elif metric=='average_delay':
-        average_delay(detecting_boundaries,prediction)
+        return average_delay(detecting_boundaries, prediction)
     elif metric== 'binary':
-        binary(true,prediction)
+        return binary(true, prediction)

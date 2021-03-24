@@ -37,7 +37,7 @@ Here we propose the leaderboard for SKAB v0.9 both for outlier and changepoint d
 The results in the tables are calculated in the python notebooks from the [notebooks](notebooks/) folder.
 
 ## Outlier detection problem
-*Sorted by F1; for F1 bigger is better; both for FAR and MAR less is better*  
+*Sorted by F1; for F1 bigger is better; both for FAR (False Alarm Rate) and MAR (Missing Alarm Rate) less is better*  
 | Algorithm | F1 | FAR, % | MAR, %
 |---|---|---|---|
 Perfect detector | 1 | 0 | 0
@@ -51,6 +51,7 @@ Null detector | 0  | 0 | 100
 
 ## Changepoint detection problem
 *Sorted by NAB (standart); for all metrics bigger is better*  
+*The current leaderboard is obtained with the window size for the NAB detection algorithm equal to 30 sec.*  
 | Algorithm | NAB (standart) | NAB (lowFP) | NAB (LowFN) |
 |---|---|---|---|
 Perfect detector | 100 | 100 | 100 
@@ -58,10 +59,16 @@ Isolation forest | ***37.53*** | 17.09 | ***45.02***
 MSCRED | 28.74 | ***23.43*** | 31.21
 LSTM | 27.09 | 11.06 | 32.68
 T-squared+Q (PCA) | 26.71 | 22.42 | 28.32
+ruptures* | 24.1 | 21.69 | 25.04
+CPDE** | 23.07 | 20.52 | 24.35
 T-squared | 17.87 | 3.44 | 23.2
 ArimaFD | 16.06 | 14.03 | 17.12
 Autoencoder | 15.59 | 0.78 | 20.91
 Null detector | 0 | 0 | 0
+
+* The best algorithm (shown) is BinSeg with Mahalanobis cost function. The results are obtained in an unsupervized manner except for knowing by the algorithms the total amount of chagepoint to look for. The full results of various changepoint detection algorithms and ensembles are presented [here](https://github.com/YKatser/CPDE).
+
+** The best aggregation function (shown) is WeightedSum with MinAbs scaling function.
 
 # Notebooks
 The [notebooks](notebooks/) folder contains python notebooks with the code for the proposed leaderboard results reproducing.
@@ -75,7 +82,9 @@ We have calculated the results for five quite common anomaly detection algorithm
 
 Additionally to the repository were added the results of the following algorithms:
 - [ArimaFD](https://github.com/waico/arimafd);
-- [MSCRED](https://ojs.aaai.org/index.php/AAAI/article/view/3942).
+- [MSCRED](https://ojs.aaai.org/index.php/AAAI/article/view/3942);
+- [ruptures](https://github.com/deepcharles/ruptures)
+- [ruptures-based ensembles](https://github.com/YKatser/CPDE)
 
 # Citation
 Please cite our project in your publications if it helps your research.
