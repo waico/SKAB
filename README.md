@@ -112,5 +112,6 @@ SKAB is acknowledged by some ML resources.
   - [awesome-TS-anomaly-detection](https://github.com/rob-med/awesome-TS-anomaly-detection#benchmark-datasets)
   - [List of datasets for machine-learning research](https://en.wikipedia.org/wiki/List_of_datasets_for_machine-learning_research#Anomaly_data)
   - [paperswithcode.com](https://paperswithcode.com/dataset/skab)
+  - [Google datasets](https://datasetsearch.research.google.com/search?query=skoltech%20anomaly%20benchmark&docid=IIIE4VWbqUKszygyAAAAAA%3D%3D)
 
 </details>
