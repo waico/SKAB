@@ -1,4 +1,4 @@
-![skab](skab.png)
+![skab](docs/pictures/skab.png)
 
 ❗️❗️❗️**The current version of SKAB (v0.9) contains 34 datasets with collective anomalies. But the upcoming update to v1.0 (probably up to the summer of 2021) will contain 300+ additional files with point and collective anomalies. It will make SKAB one of the largest changepoint-containing benchmarks, especially in the technical field.**
 
