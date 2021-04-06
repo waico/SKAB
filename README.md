@@ -32,6 +32,8 @@ The SKAB v0.9 corpus contains 35 individual data files in .csv format. Each file
 - `anomaly` - Shows if the point is anomalous (0 or 1)
 - `changepoint` - Shows if the point is a changepoint for collective anomalies (0 or 1)
 
+Exploratory Data Analysis (EDA) for SKAB is presented at [kaggle](https://www.kaggle.com/newintown/eda-example) (Russian comments included, English version is upcoming).
+
 # Leaderboard (Scoreboard)
 Here we propose the leaderboard for SKAB v0.9 both for outlier and changepoint detection problems. You can also present and evaluate your algorithm using SKAB on [kaggle](https://www.kaggle.com/yuriykatser/skoltech-anomaly-benchmark-skab).
 The results in the tables are calculated in the python notebooks from the [notebooks](notebooks/) folder.
