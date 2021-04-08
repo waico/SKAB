@@ -4,20 +4,21 @@
 
 # About SKAB [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/waico/SKAB/graphs/commit-activity) [![DOI](https://img.shields.io/badge/DOI-10.34740/kaggle/dsv/1693952-blue.svg)](https://doi.org/10.34740/KAGGLE/DSV/1693952) [![License: GPL v3.0](https://img.shields.io/badge/License-GPL%20v3.0-green.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
 We propose the Skoltech Anomaly Benchmark (SKAB) designed for evaluating the anomaly detection algorithms. SKAB allows working with two main problems (there are two markups for anomalies):
-* Outlier detection (anomalies considered and marked up as single-point anomalies)
-* Changepoint detection (anomalies considered and marked up as collective anomalies)
+1. Outlier detection (anomalies considered and marked up as single-point anomalies);
+2. Changepoint detection (anomalies considered and marked up as collective anomalies).
 
 SKAB consists of the following artifacts:
-* Datasets.
-* Leaderboard (scoreboard).
-* Python modules for algorithms’ evaluation.
-* Notebooks: python notebooks with anomaly detection algorithms.
+1. [Datasets](#datasets);
+2. [Leaderboards](#leaderboards) for oultier detection and changepoint detection problems;
+3. Python [modules](https://github.com/waico/SKAB/blob/master/utils/evaluating.py) for algorithms’ evaluation;
+4. Python [notebooks](#notebooks) with anomaly detection algorithms.
 
 The IIot testbed system is located in the Skolkovo Institute of Science and Technology (Skoltech).
 All the details regarding the testbed and the experimenting process are presented in the following artifacts:
-- Position paper (*currently submitted for publication*)
-- [Slides about the project](https://drive.google.com/open?id=1dHUevwPp6ftQCEKnRgB4KMp9oLBMSiDM)
+- Position paper (*currently submitted for publication*);
+- [Slides](https://drive.google.com/open?id=1dHUevwPp6ftQCEKnRgB4KMp9oLBMSiDM) about the project.
 
+<a name="datasets"></a>
 # Datasets
 The SKAB v0.9 corpus contains 35 individual data files in .csv format. Each file represents a single experiment and contains a single anomaly. The dataset represents a multivariate time series collected from the sensors installed on the testbed. The [data](data/) folder contains datasets from the benchmark. The structure of the data folder is presented in the [structure](./data/README.md) file. Columns in each data file are following:
 - `datetime` - Represents dates and times of the moment when the value is written to the database (YYYY-MM-DD hh:mm:ss)
@@ -34,9 +35,9 @@ The SKAB v0.9 corpus contains 35 individual data files in .csv format. Each file
 
 Exploratory Data Analysis (EDA) for SKAB is presented at [kaggle](https://www.kaggle.com/newintown/eda-example) (Russian comments included, English version is upcoming).
 
-# Leaderboard (Scoreboard)
-Here we propose the leaderboard for SKAB v0.9 both for outlier and changepoint detection problems. You can also present and evaluate your algorithm using SKAB on [kaggle](https://www.kaggle.com/yuriykatser/skoltech-anomaly-benchmark-skab).
-The results in the tables are calculated in the python notebooks from the [notebooks](notebooks/) folder.
+<a name="leaderboards"></a>
+# Leaderboards
+Here we propose the leaderboards for SKAB v0.9 both for outlier and changepoint detection problems. You can also present and evaluate your algorithm using SKAB on [kaggle](https://www.kaggle.com/yuriykatser/skoltech-anomaly-benchmark-skab).
 
 ## Outlier detection problem
 *Sorted by F1; for F1 bigger is better; both for FAR (False Alarm Rate) and MAR (Missing Alarm Rate) less is better*  
@@ -68,25 +69,26 @@ ArimaFD | 16.06 | 14.03 | 17.12
 Autoencoder | 15.59 | 0.78 | 20.91
 Null detector | 0 | 0 | 0
 
-** The best algorithm (shown) is BinSeg with Mahalanobis cost function. The results are obtained in an unsupervized manner except for knowing by the algorithms the total amount of chagepoint to look for. The full results of various changepoint detection algorithms and ensembles are presented [here](https://github.com/YKatser/CPDE).
+** The best algorithm (shown) is BinSeg with Mahalanobis cost function. The results are obtained in an unsupervised manner except for knowing by the algorithms the total amount of chagepoint to look for. The full results of various changepoint detection algorithms and ensembles are presented [here](https://github.com/YKatser/CPDE).
 
 *** The best aggregation function (shown) is WeightedSum with MinAbs scaling function.
 
+<a name="notebooks"></a>
 # Notebooks
 The [notebooks](notebooks/) folder contains python notebooks with the code for the proposed leaderboard results reproducing.
 
-We have calculated the results for five quite common anomaly detection algorithms:
+We have calculated the results for six quite common anomaly detection algorithms:
 - Hotelling's T-squared statistics;
 - Hotelling's T-squared statistics + Q statistics based on PCA;
 - Isolation forest;
 - LSTM-based NN;
-- Feed-Forward Autoencoder.
+- Feed-Forward Autoencoder;
+- Multi-Scale Convolutional Recurrent Encoder-Decoder (MSCRED).
 
-Additionally to the repository were added the results of the following algorithms:
+Additionally on the leaderboard were shown the results of the following algorithms:
 - [ArimaFD](https://github.com/waico/arimafd);
-- [MSCRED](https://ojs.aaai.org/index.php/AAAI/article/view/3942);
-- [ruptures](https://github.com/deepcharles/ruptures)
-- [ruptures-based ensembles](https://github.com/YKatser/CPDE)
+- [ruptures](https://github.com/deepcharles/ruptures);
+- [ruptures-based ensembles](https://github.com/YKatser/CPDE).
 
 # Citation
 Please cite our project in your publications if it helps your research.
