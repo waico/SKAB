@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 
 def evaluating_change_point(true, prediction, metric='nab', numenta_time=None):
     """
@@ -70,10 +69,10 @@ def evaluating_change_point(true, prediction, metric='nab', numenta_time=None):
         return add
     
     def evaluate_nab(detecting_boundaries, prediction, table_of_coef=None):
+        print(detecting_boundaries)
         """
         Scoring labeled time series by means of
         Numenta Anomaly Benchmark methodics
-
         Parameters
         ----------
         detecting_boundaries: list of list of two float values
@@ -85,8 +84,6 @@ def evaluating_change_point(true, prediction, metric='nab', numenta_time=None):
             Table of coefficients for NAB score function
             indeces: 'Standart','LowFP','LowFN'
             columns:'A_tp','A_fp','A_tn','A_fn'
-
-
         Returns
         -------
         Scores: numpy array, shape of 3, float
@@ -96,7 +93,27 @@ def evaluating_change_point(true, prediction, metric='nab', numenta_time=None):
         Scores_perfect: numpy array, shape 3, float
             Perfect Score for 'Standart','LowFP','LowFN' profile  
         """
-        def single_evaluate_nab(detecting_boundaries, prediction, table_of_coef=None, name_of_dataset=None):
+        def single_evaluate_nab(detecting_boundaries,
+                                prediction, 
+                                table_of_coef=None,
+                                name_of_dataset=None,
+                                intersection_mode='cut left',
+                                mode_cp_or_ad = 'cp',
+                                scale_func = "default",
+                                scale_koef=2):
+            def sigm_scale(y, A_tp, A_fp, window=1):
+                    return (A_tp-A_fp)*(1/(1+np.exp(5*y/window))) + A_fp
+            def my_scale(len_ts,A_tp,A_fp,koef=1):
+                """ts - участок на котором надо жахнуть окно """
+                x = np.linspace(-np.pi/2,np.pi/2,len_ts)
+                # Приведение если неравномерный шаг.
+                #x_new = x_old * ( np.pi / (x_old[-1]-x_old[0])) - x_old[0]*( np.pi / (x_old[-1]-x_old[0])) - np.pi/2
+                y = (A_tp-A_fp)/2*-1*np.tanh(koef*x)/(np.tanh(np.pi*koef/2)) + (A_tp-A_fp)/2 + A_fp
+                return y 
+
+            if scale_func == "default":
+                scale_func = my_scale            
+            
             if table_of_coef is None:
                 table_of_coef = pd.DataFrame([[1.0,-0.11,1.0,-1.0],
                                      [1.0,-0.22,1.0,-1.0],
@@ -105,52 +122,43 @@ def evaluating_change_point(true, prediction, metric='nab', numenta_time=None):
                 table_of_coef.index.name = "Metric"
                 table_of_coef.columns = ['A_tp','A_fp','A_tn','A_fn']
 
-            alist = detecting_boundaries.copy()
+            detecting_boundaries = detecting_boundaries.copy()
             prediction = prediction.copy()
-
+            _df_fill_bounds =  pd.DataFrame(np.ones((len(prediction),len(detecting_boundaries)))*np.nan,index=prediction.index)
+            for i in range(len(detecting_boundaries)):
+                _df_fill_bounds.loc[detecting_boundaries[i][0]:detecting_boundaries[i][1],i]=1
+            
             Scores, Scores_perfect, Scores_null=[], [], []
             for profile in ['Standart', 'LowFP', 'LowFN']:       
                 A_tp = table_of_coef['A_tp'][profile]
                 A_fp = table_of_coef['A_fp'][profile]
                 A_fn = table_of_coef['A_fn'][profile]
-                def sigm_scale(y, A_tp, A_fp, window=1):
-                    return (A_tp-A_fp)*(1/(1+np.exp(5*y/window))) + A_fp
-
-                #First part
+                
                 score = 0
-                if len(alist)>0:
-                    score += prediction[:alist[0][0]].sum()*A_fp
-                else:
-                    score += prediction.sum()*A_fp
-                #second part
-                for i in range(len(alist)):
-                    if i<=len(alist)-2:
-                        win_space = prediction[alist[i][0]:alist[i+1][0]].copy()
-                    else:
-                        win_space = prediction[alist[i][0]:].copy()
-                    win_fault = prediction[alist[i][0]:alist[i][1]]
-                    slow_width = int(len(win_fault)/4)
-
-                    if len(win_fault) + slow_width >= len(win_space):
-                        print(f'Intersection of the windows of too wide widths for dataset {name_of_dataset}')
-                        win_fault_slow = win_fault.copy()
-                    else:
-                        win_fault_slow= win_space[:len(win_fault)  +  slow_width]
-
-                    win_fp = win_space[-len(win_fault_slow):]
-
-                    if win_fault_slow.sum() == 0:
+                # FPs
+                ts_fp = pd.Series(np.ones(len(prediction)),index=prediction.index)
+                ts_fp.loc[_df_fill_bounds.dropna(how='all').index]=0
+                ts_fp = ts_fp * prediction
+                score += A_fp*ts_fp.sum()
+                #FNs and TPs
+                for i in range(len(detecting_boundaries)):
+                    ts_tp = _df_fill_bounds.iloc[:,i].dropna()
+                    ts_tp = ts_tp * prediction.loc[ts_tp.index]
+                    if ts_tp.sum()==0:
                         score+=A_fn
+                        
                     else:
-                        #to get the first index
-                        tr = pd.Series(win_fault_slow.values,index = range(-len(win_fault), len(win_fault_slow)-len(win_fault)))
-                        tr_values= tr[tr==1].index[0]
-                        tr_score = sigm_scale(tr_values, A_tp,A_fp,slow_width)
-                        score += tr_score
-                        score += win_fp.sum()*A_fp
+                        ts_profile = pd.Series(data=scale_func(
+                                                                len(ts_tp),A_tp,A_fp,koef=scale_koef),
+                                               index = ts_tp.index)
+                        plt.plot(ts_profile)
+                        ts_tp.loc[ts_tp[ts_tp==1].index[1:]] = 0 
+                        plt.axvline(ts_tp[ts_tp==1].index[0])
+                        score = (ts_profile * ts_tp).sum()
+                print(score)
                 Scores.append(score)
-                Scores_perfect.append(len(alist)*A_tp)
-                Scores_null.append(len(alist)*A_fn)
+                Scores_perfect.append(len(detecting_boundaries)*A_tp)
+                Scores_null.append(len(detecting_boundaries)*A_fn)
             return np.array([np.array(Scores),np.array(Scores_null), np.array(Scores_perfect)])
        #======      
         if type(prediction) != type(list()):
@@ -191,6 +199,28 @@ def evaluating_change_point(true, prediction, metric='nab', numenta_time=None):
             detecting_boundaries=[]
             for i in range(len(true)):
                 detecting_boundaries.append(single_detecting_boundaries(true=true[i], numenta_time=numenta_time, true_items=true_items[i]))
+        # block for resolving intersection problem:
+        # важно не ошибиться, и всегда следить, чтобы везде правая граница далее
+        # не включалась, иначе будет пересечения окон             
+        new_detecting_boundaries = detecting_boundaries.copy() 
+        if new_detecting_boundaries[0][0] < prediction.index[0]:
+            new_detecting_boundaries[0][0] = prediction.index[0]
+        if new_detecting_boundaries[-1][-1] > prediction.index[-1]:
+            new_detecting_boundaries[-1][-1] = prediction.index[-1]
+        for i in range(len(new_detecting_boundaries)-1):
+            if new_detecting_boundaries[i][1] >= new_detecting_boundaries[i+1][0]:
+                print("Intersection of scoring windows")
+                if intersection_mode == 'cut left':
+                    new_detecting_boundaries[i][1] = new_detecting_boundaries[i+1][0]
+                elif intersection_mode == 'cut right':
+                    new_detecting_boundaries[i+1][0] = new_detecting_boundaries[i][1]
+                elif intersection_mode == 'cut both':
+                    _a  = new_detecting_boundaries[i][1]
+                    new_detecting_boundaries[i][1] = new_detecting_boundaries[i+1][0]
+                    new_detecting_boundaries[i+1][0] = _a
+                else:
+                    raise("choose the intersection_mode")
+        detecting_boundaries = new_detecting_boundaries.copy()
 
     if metric== 'nab':
         return evaluate_nab(detecting_boundaries, prediction)
