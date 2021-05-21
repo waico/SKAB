@@ -44,7 +44,8 @@ Here we propose the leaderboards for SKAB v0.9 both for outlier and changepoint 
 | Algorithm | F1 | FAR, % | MAR, %
 |---|---|---|---|
 Perfect detector | 1 | 0 | 0
-T-squared+Q (PCA) | ***0.67*** | 13.95 | ***36.32***
+MSET |***0.73*** | 20.82 | ***20.08***
+T-squared+Q (PCA) | 0.67 | 13.95 | ***36.32***
 LSTM | 0.64 | 15.4 | 39.93
 MSCRED | 0.64 | 13.56 | 41.16
 T-squared | 0.56 | 12.14 | 52.56
@@ -67,6 +68,7 @@ CPDE*** | 23.07 | 20.52 | 24.35
 T-squared | 17.87 | 3.44 | 23.2
 ArimaFD | 16.06 | 14.03 | 17.12
 Autoencoder | 15.59 | 0.78 | 20.91
+MSET | 12.71 | 11.04 | 13.6
 Null detector | 0 | 0 | 0
 
 ** The best algorithm (shown) is BinSeg with Mahalanobis cost function. The results are obtained in an unsupervised manner except for knowing by the algorithms the total amount of chagepoint to look for. The full results of various changepoint detection algorithms and ensembles are presented [here](https://github.com/YKatser/CPDE).
@@ -84,6 +86,7 @@ We have calculated the results for six quite common anomaly detection algorithms
 - LSTM-based NN;
 - Feed-Forward Autoencoder;
 - Multi-Scale Convolutional Recurrent Encoder-Decoder (MSCRED).
+- Multivariate State Estimation Technique (MSET)
 
 Additionally on the leaderboard were shown the results of the following algorithms:
 - [ArimaFD](https://github.com/waico/arimafd);
