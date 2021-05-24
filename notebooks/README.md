@@ -38,3 +38,8 @@ Finally, with the feature maps which encode the inter-sensor correlations and te
 The intuition is that MSCRED may not reconstruct the signature matrices well if it never observes similar system statuses before.
 
 [[notebook]](https://github.com/waico/SKAB/blob/master/notebooks/mscred.ipynb) [[paper]](https://ojs.aaai.org/index.php/AAAI/article/view/3942)
+
+### MSET 
+MSET - multivariate state estimation technique is a non-parametric and statistical modeling method, which calculates the estimated values based on the weighted average of historical data. In terms of procedure, MSET is similar to some nonparametric regression methods, such as, auto-associative kernel regression.
+
+[[notebook]](https://github.com/KotsoevK/SKAB/blob/master/notebooks/MSET.ipynb) [[paper]](https://inis.iaea.org/collection/NCLCollectionStore/_Public/32/025/32025817.pdf)
