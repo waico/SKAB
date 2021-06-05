@@ -37,9 +37,9 @@ Exploratory Data Analysis (EDA) for SKAB is presented at [kaggle](https://www.ka
 
 <a name="leaderboards"></a>
 # Leaderboards
-Here we propose the leaderboards for SKAB v0.9 both for outlier and changepoint detection problems. You can also present and evaluate your algorithm using SKAB on [kaggle](https://www.kaggle.com/yuriykatser/skoltech-anomaly-benchmark-skab).
+Here we propose the leaderboards for SKAB v0.9 both for outlier and changepoint detection problems. You can also present and evaluate your algorithm using SKAB on [kaggle](https://www.kaggle.com/yuriykatser/skoltech-anomaly-benchmark-skab). Leaderboards are also available at paperswithcode.com: [CPD problem](https://paperswithcode.com/sota/change-point-detection-on-skab).
 
-## Outlier detection problem
+### Outlier detection problem
 *Sorted by F1; for F1 bigger is better; both for FAR (False Alarm Rate) and MAR (Missing Alarm Rate) less is better*  
 | Algorithm | F1 | FAR, % | MAR, %
 |---|---|---|---|
@@ -53,7 +53,7 @@ Autoencoder | 0.45 | 7.56 | 66.57
 Isolation forest | 0.4 | ***6.86*** | 72.09
 Null detector | 0  | 0 | 100
 
-## Changepoint detection problem
+### Changepoint detection problem 
 *Sorted by NAB (standard); for all metrics bigger is better*  
 *The current leaderboard is obtained with the window size for the NAB detection algorithm equal to 30 sec.*  
 | Algorithm | NAB (standard) | NAB (lowFP) | NAB (LowFN) |
@@ -79,19 +79,19 @@ Null detector | 0 | 0 | 0
 # Notebooks
 The [notebooks](notebooks/) folder contains python notebooks with the code for the proposed leaderboard results reproducing.
 
-We have calculated the results for six quite common anomaly detection algorithms:
+We have calculated the results for seven quite common anomaly detection algorithms:
 - Hotelling's T-squared statistics;
 - Hotelling's T-squared statistics + Q statistics based on PCA;
 - Isolation forest;
 - LSTM-based NN;
 - Feed-Forward Autoencoder;
-- Multi-Scale Convolutional Recurrent Encoder-Decoder (MSCRED).
-- Multivariate State Estimation Technique (MSET)
+- Multi-Scale Convolutional Recurrent Encoder-Decoder (MSCRED);
+- Multivariate State Estimation Technique (MSET).
 
 Additionally on the leaderboard were shown the results of the following algorithms:
 - [ArimaFD](https://github.com/waico/arimafd);
-- [ruptures](https://github.com/deepcharles/ruptures);
-- [ruptures-based ensembles](https://github.com/YKatser/CPDE).
+- [ruptures](https://github.com/deepcharles/ruptures) changepoint detection (CPD) algorithms;
+- ruptures-based [changepoint detection ensemble (CPDE) algorithms](https://github.com/YKatser/CPDE).
 
 # Citation
 Please cite our project in your publications if it helps your research.
