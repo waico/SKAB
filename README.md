@@ -44,8 +44,10 @@ Here we propose the leaderboards for SKAB v0.9 both for outlier and changepoint 
 | Algorithm | F1 | FAR, % | MAR, %
 |---|---|---|---|
 Perfect detector | 1 | 0 | 0
-MSET |***0.73*** | 20.82 | ***20.08***
-T-squared+Q (PCA) | 0.67 | 13.95 | ***36.32***
+Conv-AE |***0.79*** | 13.69 | ***17.77***
+MSET |0.73 | 20.82 | 20.08
+LSTM-AE |0.68 | 14.24 | 35.56
+T-squared+Q (PCA) | 0.67 | 13.95 | 36.32
 LSTM | 0.64 | 15.4 | 39.93
 MSCRED | 0.64 | 13.56 | 41.16
 T-squared | 0.56 | 12.14 | 52.56
@@ -65,10 +67,12 @@ LSTM | 27.09 | 11.06 | 32.68
 T-squared+Q (PCA) | 26.71 | 22.42 | 28.32
 ruptures** | 24.1 | 21.69 | 25.04
 CPDE*** | 23.07 | 20.52 | 24.35
+LSTM-AE |22.12 | 20.01 | 23.21
 T-squared | 17.87 | 3.44 | 23.2
 ArimaFD | 16.06 | 14.03 | 17.12
 Autoencoder | 15.59 | 0.78 | 20.91
 MSET | 12.71 | 11.04 | 13.6
+Conv Autoencoder | 10.09 | 8.62 | 10.83
 Null detector | 0 | 0 | 0
 
 ** The best algorithm (shown) is BinSeg with Mahalanobis cost function. The results are obtained in an unsupervised manner except for knowing by the algorithms the total amount of chagepoint to look for. The full results of various changepoint detection algorithms and ensembles are presented [here](https://github.com/YKatser/CPDE).
