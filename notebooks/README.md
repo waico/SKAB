@@ -41,6 +41,11 @@ A reconstruction sequence-to-sequence (LSTM-based) autoencoder model to detect a
 
 [[notebook]](https://github.com/waico/SKAB/blob/master/notebooks/LSTM-AE.ipynb) [[paper]](https://machinelearningmastery.com/lstm-autoencoders/) [[paper]](https://blog.keras.io/building-autoencoders-in-keras.html)
 
+### LSTM Variational Autoencoder (LSTM-VAE)
+A reconstruction LSTM variational autoencoder model to detect anomalies in timeseries data using reconstruction error as an anomaly score.
+
+[[notebook]](https://github.com/waico/SKAB/blob/master/notebooks/LSTM-VAE.ipynb) [[paper]](https://arxiv.org/pdf/1511.06349.pdf) [[code]](https://github.com/twairball/keras_lstm_vae)
+
 ### Variational Autoencoder (VAE)
 A reconstruction variational autoencoder model to detect anomalies in timeseries data using reconstruction error as an anomaly score.
 

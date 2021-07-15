@@ -50,6 +50,7 @@ LSTM-AE |0.68 | 14.24 | 35.56
 T-squared+Q (PCA) | 0.67 | 13.95 | 36.32
 LSTM | 0.64 | 15.4 | 39.93
 MSCRED | 0.64 | 13.56 | 41.16
+LSTM-VAE | 0.56 | 9.12 | 54.17
 T-squared | 0.56 | 12.14 | 52.56
 Autoencoder | 0.45 | 7.56 | 66.57
 Isolation forest | 0.4 | ***6.86*** | 72.09
@@ -68,6 +69,7 @@ T-squared+Q (PCA) | 26.71 | 22.42 | 28.32
 ruptures** | 24.1 | 21.69 | 25.04
 CPDE*** | 23.07 | 20.52 | 24.35
 LSTM-AE |22.12 | 20.01 | 23.21
+LSTM-VAE | 20.53 | 16.93 | 22.15
 T-squared | 17.87 | 3.44 | 23.2
 ArimaFD | 16.06 | 14.03 | 17.12
 Autoencoder | 15.59 | 0.78 | 20.91
@@ -81,14 +83,17 @@ Null detector | 0 | 0 | 0
 
 <a name="notebooks"></a>
 # Notebooks
-The [notebooks](notebooks/) folder contains python notebooks with the code for the proposed leaderboard results reproducing.
+The [notebooks](notebooks/) folder contains python notebooks with the code for the proposed leaderboard results reproducing. This folder also contains short description of the algorithms and references to papers and code.
 
-We have calculated the results for seven quite common anomaly detection algorithms:
+We have calculated the results for following common anomaly detection algorithms:
 - Hotelling's T-squared statistics;
 - Hotelling's T-squared statistics + Q statistics based on PCA;
 - Isolation forest;
-- LSTM-based NN;
+- LSTM-based NN (LSTM);
 - Feed-Forward Autoencoder;
+- LSTM Autoencoder (LSTM-AE);
+- LSTM Variational Autoencoder (LSTM-VAE);
+- Convolutional Autoencoder (Conv-AE);
 - Multi-Scale Convolutional Recurrent Encoder-Decoder (MSCRED);
 - Multivariate State Estimation Technique (MSET).
 
