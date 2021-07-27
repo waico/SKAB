@@ -47,9 +47,9 @@ A reconstruction LSTM variational autoencoder model to detect anomalies in times
 [[notebook]](https://github.com/waico/SKAB/blob/master/notebooks/LSTM-VAE.ipynb) [[paper]](https://arxiv.org/pdf/1511.06349.pdf) [[code]](https://github.com/twairball/keras_lstm_vae)
 
 ### Variational Autoencoder (VAE)
-A reconstruction variational autoencoder model to detect anomalies in timeseries data using reconstruction error as an anomaly score.
+A reconstruction variational autoencoder (VAE) model to detect anomalies in timeseries data using reconstruction error as an anomaly score. VAE is an autoencoder that learns a latent variable model for its input data. So instead of letting your neural network learn an arbitrary function, you are learning the parameters of a probability distribution modeling your data. If you sample points from this distribution, you can generate new input data samples: a VAE is a "generative model".
 
-[[notebook]](https://github.com/waico/SKAB/blob/master/notebooks/VAE.ipynb) [[paper]](https://dl.acm.org/doi/pdf/10.1145/3178876.3185996?casa_token=HVY_9X3NxToAAAAA%3AZzZNSpmDdI9bEbTCqC1R3fPLiP4SDHyH9l9VyHxZ9zsL_3UXblc7Fe-ZdMPI7gkyVN9orRYQ5j9C) [[paper]](https://blog.keras.io/building-autoencoders-in-keras.html)
+[[notebook]](https://github.com/waico/SKAB/blob/master/notebooks/VAE.ipynb) [[paper1]](https://arxiv.org/pdf/1312.6114.pdf) [[paper2]](https://dl.acm.org/doi/pdf/10.1145/3178876.3185996?casa_token=HVY_9X3NxToAAAAA%3AZzZNSpmDdI9bEbTCqC1R3fPLiP4SDHyH9l9VyHxZ9zsL_3UXblc7Fe-ZdMPI7gkyVN9orRYQ5j9C) [[code]](https://blog.keras.io/building-autoencoders-in-keras.html)
 
 
 ### MSCRED
