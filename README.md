@@ -39,6 +39,8 @@ Exploratory Data Analysis (EDA) for SKAB is presented at [kaggle](https://www.ka
 # Leaderboards
 Here we propose the leaderboards for SKAB v0.9 both for outlier and changepoint detection problems. You can also present and evaluate your algorithm using SKAB on [kaggle](https://www.kaggle.com/yuriykatser/skoltech-anomaly-benchmark-skab). Leaderboards are also available at paperswithcode.com: [CPD problem](https://paperswithcode.com/sota/change-point-detection-on-skab).
 
+❗️All results (excl. ruptures and CPDE) are calculated for out-of-box algorithms without any hyperparameters tuning.
+
 ### Outlier detection problem
 *Sorted by F1; for F1 bigger is better; both for FAR (False Alarm Rate) and MAR (Missing Alarm Rate) less is better*  
 | Algorithm | F1 | FAR, % | MAR, %
