@@ -4,7 +4,7 @@ anyio==2.2.0
 appnope==0.1.2
 astunparse==1.6.3
 attrs==20.3.0
-Babel==2.9.0
+Babel==2.9.1
 backcall==0.2.0
 bleach==3.3.0
 cachetools==4.2.1
