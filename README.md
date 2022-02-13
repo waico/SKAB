@@ -64,23 +64,24 @@ Null detector | 0  | 0 | 100
 ### Changepoint detection problem 
 *Sorted by NAB (standard); for all metrics bigger is better*  
 *The current leaderboard is obtained with the window size for the NAB detection algorithm equal to 30 sec.*  
+
 | Algorithm | NAB (standard) | NAB (lowFP) | NAB (LowFN) |
 |---|---|---|---|
-Perfect detector | 100 | 100 | 100 
-Isolation forest | ***37.53*** | 17.09 | ***45.02***
-MSCRED | 28.74 | ***23.43*** | 31.21
-LSTM | 27.09 | 11.06 | 32.68
-T-squared+Q (PCA) | 26.71 | 22.42 | 28.32
-ruptures** | 24.1 | 21.69 | 25.04
-CPDE*** | 23.07 | 20.52 | 24.35
-LSTM-AE |22.12 | 20.01 | 23.21
-LSTM-VAE | 19.17 | 15.39 | 20.98
-T-squared | 17.87 | 3.44 | 23.2
-ArimaFD | 16.06 | 14.03 | 17.12
-Autoencoder | 15.59 | 0.78 | 20.91
-MSET | 12.71 | 11.04 | 13.6
-Conv-AE | 10.09 | 8.62 | 10.83
-Null detector | 0 | 0 | 0
+|Perfect detector | 100 | 100 | 100 |
+|Isolation forest | ***37.53*** | 17.09 | ***45.02***|
+|MSCRED | 28.74 | ***23.43*** | 31.21|
+|LSTM | 27.09 | 11.06 | 32.68|
+|T-squared+Q (PCA) | 26.71 | 22.42 | 28.32|
+|ruptures** | 24.1 | 21.69 | 25.04|
+|CPDE*** | 23.07 | 20.52 | 24.35|
+|LSTM-AE |22.12 | 20.01 | 23.21|
+|LSTM-VAE | 19.17 | 15.39 | 20.98|
+|T-squared | 17.87 | 3.44 | 23.2|
+|ArimaFD | 07.67 | 01.97 | 11.04 |
+|Autoencoder | 15.59 | 0.78 | 20.91|
+|MSET | 12.71 | 11.04 | 13.6|
+|Conv-AE | 10.09 | 8.62 | 10.83|
+|Null detector | 0 | 0 | 0|
 
 ** The best algorithm (shown) is BinSeg with Mahalanobis cost function. The results are obtained in an unsupervised manner except for knowing by the algorithms the total amount of chagepoint to look for. The full results of various changepoint detection algorithms and ensembles are presented [here](https://github.com/YKatser/CPDE).
 
