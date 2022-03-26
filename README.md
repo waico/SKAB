@@ -1,6 +1,8 @@
 ![skab](docs/pictures/skab.png)
 
-❗️❗️❗️**The current version of SKAB (v0.9) contains 34 datasets with collective anomalies. But the upcoming update to v1.0 (probably up to the winter of 2021) will contain 300+ additional files with point and collective anomalies. It will make SKAB one of the largest changepoint-containing benchmarks, especially in the technical field.**
+❗️❗️❗️**The testbed is under repair right now. Unfortunately, we can't tell exactly when it will be ready and we be able to continue data collection. Information about it will be in the repository. Sorry for the delay.**
+
+❗️❗️❗️The current version of SKAB (v0.9) contains 34 datasets with collective anomalies. But the update to v1.0 will contain 300+ additional files with point and collective anomalies. It will make SKAB one of the largest changepoint-containing benchmarks, especially in the technical field.
 
 # About SKAB [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/waico/SKAB/graphs/commit-activity) [![DOI](https://img.shields.io/badge/DOI-10.34740/kaggle/dsv/1693952-blue.svg)](https://doi.org/10.34740/KAGGLE/DSV/1693952) [![License: GPL v3.0](https://img.shields.io/badge/License-GPL%20v3.0-green.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
 We propose the [Skoltech](https://www.skoltech.ru/en) Anomaly Benchmark (SKAB) designed for evaluating the anomaly detection algorithms. SKAB allows working with two main problems (there are two markups for anomalies):
