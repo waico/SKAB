@@ -40,7 +40,7 @@ jupyter-core==4.6.3
 jupyter-highlight-selected-word==0.2.0
 jupyter-latex-envs==1.4.6
 jupyter-nbextensions-configurator==0.4.1
-jupyter-server==1.4.1
+jupyter-server==1.15.4
 jupyterlab==3.0.17
 jupyterlab-server==2.3.0
 Keras-Preprocessing==1.1.2
