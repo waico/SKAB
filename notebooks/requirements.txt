@@ -89,7 +89,7 @@ six==1.15.0
 sniffio==1.2.0
 tensorboard==2.4.1
 tensorboard-plugin-wit==1.8.0
-tensorflow==2.5.3
+tensorflow==2.7.2
 tensorflow-estimator==2.4.0
 termcolor==1.1.0
 terminado==0.9.2
