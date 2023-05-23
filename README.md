@@ -18,7 +18,7 @@ SKAB consists of the following artifacts:
 The IIot testbed system is located in the Skolkovo Institute of Science and Technology (Skoltech).
 All the details regarding the testbed and the experimenting process are presented in the following artifacts:
 - Position paper (*currently submitted for publication*);
-- [Slides](https://drive.google.com/open?id=1dHUevwPp6ftQCEKnRgB4KMp9oLBMSiDM) about the project.
+- Slides about the project: [in English](https://drive.google.com/open?id=1dHUevwPp6ftQCEKnRgB4KMp9oLBMSiDM), [in Russian](https://drive.google.com/file/d/1gThPCNbEaIxhENLm-WTFGO_9PU1Wdwjq/view?usp=share_link).
 
 <a name="datasets"></a>
 # Datasets
