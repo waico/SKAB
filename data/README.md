@@ -3,12 +3,12 @@
       ├── Load data.ipynb         # Jupyter Notebook to load all data
       ├── anomaly-free         
       │   └── anomaly-free.csv     # Data obtained from the experiments with normal mode
-      ├── valve1                  # Data obtained from the experiments with closing the valve at the outlet of the flow from the pump.
+      ├── valve2                  # Data obtained from the experiments with closing the valve at the outlet of the flow from the pump.
       │   ├── 1.csv            
       │   ├── 2.csv            
       │   ├── 3.csv            
       │   └── 4.csv            	
-      ├── valve2                  # Data obtained from the experiments with closing the valve at the flow inlet to the pump.
+      ├── valve1                  # Data obtained from the experiments with closing the valve at the flow inlet to the pump.
       │   ├── 1.csv            
       │   ├── 2.csv            
       │   ├── 3.csv            

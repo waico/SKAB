@@ -4,7 +4,7 @@
 Hotelling's statistic is one of the most popular statistical process control techniques. It is based on the Mahalanobis distance.
 Generally, it measures the distance between the new vector of values and the previously defined vector of normal values additionally using variances.
 
-[[notebook]](https://github.com/waico/SKAB/blob/master/notebooks/hotelling.ipynb) [[paper]](https://www.semanticscholar.org/paper/Multivariate-Quality-Control-illustrated-by-the-air-Hotelling/529ba6c1a80b684d2f704a7565da305bb84f14e8)
+[[notebook]](https://github.com/YKatser/ControlCharts/blob/main/examples/t2_SKAB.ipynb) [[paper]](https://www.semanticscholar.org/paper/Multivariate-Quality-Control-illustrated-by-the-air-Hotelling/529ba6c1a80b684d2f704a7565da305bb84f14e8)
 
 ### Hotelling's T-squared statistic + Q statistic (SPE index) based on PCA
 The combined index is based on PCA.
@@ -12,7 +12,7 @@ Hotelling’s T-squared statistic measures variations in the principal component
 Q statistic measures the projection of the sample vector on the residual subspace.
 To avoid using two separated indicators (Hotelling's T-squared and Q statistics) for the process monitoring, we use a combined one based on logical or.
 
-[[notebook]](https://github.com/waico/SKAB/blob/master/notebooks/hotelling_q.ipynb) [[paper]](https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/abs/10.1002/cem.800)
+[[notebook]](https://github.com/YKatser/ControlCharts/blob/main/examples/t2_with_q_SKAB.ipynb) [[paper]](https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/abs/10.1002/cem.800)
 
 ### Isolation Forest
 Isolation Forest or iForest builds an ensemble of iTrees for a given data set, then anomalies are those instances which have short average path lengths on the iTrees.
