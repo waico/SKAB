@@ -8,7 +8,7 @@ notebooks/*.h5
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
-src/__pycache__/
+algorithms/__pycache__/
 notebooks/__pycache__/
 *.py[cod]
 *$py.class
@@ -61,7 +61,7 @@ coverage.xml
 # Jupyter Notebook
 .ipynb_checkpoints
 notebooks/.ipynb_checkpoints
-src/.ipynb_checkpoints
+algorithms/.ipynb_checkpoints
 
 # IPython
 profile_default/
