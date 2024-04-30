@@ -300,7 +300,7 @@ class MSCRED:
     def _loss_fn(self, y_true, y_pred):
         return tf.reduce_mean(tf.square(y_true - y_pred))
 
-    def fit(self, X_train, Y_train, X_test, Y_test, batch_size=200, epochs=25):
+    def fit(self, X_train, Y_train, batch_size=200, epochs=25):
         """
         Train the MSCRED model on the provided data.
 
@@ -334,7 +334,7 @@ class MSCRED:
             Y_train,
             batch_size=batch_size,
             epochs=epochs,
-            validation_data=(X_test, Y_test),
+            # validation_data=(X_test, Y_test),
             callbacks=reduce_lr,
         )
 
