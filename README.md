@@ -47,55 +47,13 @@ Exploratory Data Analysis (EDA) for SKAB is presented [here](https://github.com/
 
 ## Leaderboards
 
-## 1. Proposed Leaderboard
+## Proposed Leaderboard
 
-Here we propose the leaderboards for SKAB v0.9 for both outlier and changepoint detection problems. You can also present and evaluate your algorithm using SKAB on [kaggle](https://www.kaggle.com/yuriykatser/skoltech-anomaly-benchmark-skab). Leaderboards are also available at paperswithcode.com: [CPD problem](https://paperswithcode.com/sota/change-point-detection-on-skab).
+This leaderboard shows performance of algorithms on test set, unlike leaderboard for SKAB v0.9 which evaluates both training and testing data all together. Moreover, the evaluated window of change points is to the right side of actual change point occurence which is in accordance with fact, that it should be impossible to capture event before it occurs. Lastly, the window size for the NAB detection algorithm is set to 60 seconds to reflect the dynamics of the transition as presented in the slides to enable detection of the start of the transition phase which is also marked as change-point.
 
-### 1. Outlier detection problem
+You can present and evaluate your algorithm using SKAB on [kaggle](https://www.kaggle.com/yuriykatser/skoltech-anomaly-benchmark-skab). Leaderboards are also available at paperswithcode.com: [CPD problem](https://paperswithcode.com/sota/change-point-detection-on-skab).
 
-*Sorted by F1; for F1 bigger is better; both for FAR (False Alarm Rate) and MAR (Missing Alarm Rate) less is better*
-*Evaluated as binary classification problem.*
-
-| Algorithm | F1 | FAR, % | MAR, %
-|---|---|---|---
-|Perfect detector | 1 | 0 | 0
-|Conv-AE | 0.77 | 6.38 | 29.65
-|MSET | 0.77 | 17.93 | 16.08
-|T-squared+Q (PCA-based) | 0.75 | 12.09 | 26.62
-|MSCRED | 0.74 | 12.19 | 28.99
-|LSTM-AE | 0.73 | 13.65 | 27.6
-|T-squared | 0.65 | 8.71 | 43.9
-|LSTM-VAE | 0.56 | 9.13 | 55.03
-|Vanilla LSTM | 0.53 | 5.64 | 60.46
-|Vanilla AE | 0.38 | 1.18 | 75.72
-|Isolation forest | 0.28 | 1.16 | 83.28
-|Null detector | 0 | 0 | 100
-
-### 1. Changepoint detection problem
-
-*Sorted by NAB (standard); for all metrics bigger is better*
-*The current leaderboard is obtained with the window size for the NAB detection algorithm equal to 30 sec.*
-
-| Algorithm | NAB (standard) | NAB (lowFP) | NAB (LowFN) | Number of Missed CPs | Number of FPs
-|---|---|---|---|---|---
-|Perfect detector | 100 | 100 | 100 | 0 | 0
-|ArimaFD | 10.65 | 4.95 | 14.08 | 78 | 65
-|Isolation forest | 9.24 | 1.09 | 13.91 | 68 | 36
-|LSTM-AE | 13.77 | 9.07 | 17.97 | 74 | 20
-|T-squared+Q (PCA-based) | 8.38 | -5.54 | 15.66 | 75 | 71
-|Conv-AE | 7.43 | 4.86 | 9.86 | 82 | 14
-|T-squared | 6.22 | -5.0 | 12.41 | 76 | 58
-|MSET | 5.97 | 1.84 | 7.86 | 94 | 19
-|Vanilla AE | 5.41 | -1.31 | 8.78 | 104 | 60
-|MSCRED | 1.73 | -29.72 | 15.62 | 54 | 146
-|Vanilla LSTM | -2.05 | -21.46 | 6.9 | 85 | 75
-|Null detector | 0 | 0 | 0 | - | -
-
-## 2. Strict Leaderboard
-
-This leaderboard shows performance of algorithms on test set, unlike original leaderboard which evaluates both training and testing data all together. Moreover, the evaluated window of change points is to the right side of actual change point occurence which is in accordance with fact, that it should be impossible to capture event before it occurs. Lastly, the window size for the NAB detection algorithm is set to 60 seconds to reflect the dynamics of the transition as presented in the slides to enable detection of the start of the transition phase which is also marked as change-point.
-
-### 2. Outlier detection problem
+### Outlier detection problem
 
 *Sorted by F1; for F1 bigger is better; both for FAR (False Alarm Rate) and MAR (Missing Alarm Rate) less is better*
 *Evaluated as binary classification problem.*
@@ -115,10 +73,10 @@ This leaderboard shows performance of algorithms on test set, unlike original le
 |Isolation forest | 0.29 | 2.56 | 82.89
 |Null detector | 0  | 0 | 100
 
-### 2. Changepoint detection problem
+### Changepoint detection problem
 
 *Sorted by NAB (standard); for all metrics bigger is better*
-*The current leaderboard is obtained with the window size for the NAB detection algorithm equal to 30 sec.*
+*The current leaderboard is obtained with the window size for the NAB detection algorithm equal to 60 sec and to the right side of true change point.*
 
 | Algorithm | NAB (standard) | NAB (lowFP) | NAB (LowFN) | Number of Missed CPs | Number of FPs
 |---|---|---|---|---|---
