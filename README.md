@@ -80,7 +80,7 @@ Here we propose the leaderboards for SKAB v0.9 for both outlier and changepoint 
 |---|---|---|---|---|---
 |Perfect detector | 100 | 100 | 100 | 0 | 0
 |ArimaFD | 10.65 | 4.95 | 14.08 | 78 | 65
-|Isolation forest | 9.24 | 1.09 | 13.91| 68 | 36
+|Isolation forest | 9.24 | 1.09 | 13.91 | 68 | 36
 |LSTM-AE | 13.77 | 9.07 | 17.97 | 74 | 20
 |T-squared+Q (PCA-based) | 8.38 | -5.54 | 15.66 | 75 | 71
 |Conv-AE | 7.43 | 4.86 | 9.86 | 82 | 14
@@ -93,7 +93,7 @@ Here we propose the leaderboards for SKAB v0.9 for both outlier and changepoint 
 
 ## 2. Strict Leaderboard
 
-This leaderboard shows performance of algorithms on test set, unlike original leaderboard which evaluates both training and testing data all together. Moreover, the evaluated window of change points is to the right side of actual change point occurence which is in accordance with fact, that it should be impossible to capture event before it occurs.
+This leaderboard shows performance of algorithms on test set, unlike original leaderboard which evaluates both training and testing data all together. Moreover, the evaluated window of change points is to the right side of actual change point occurence which is in accordance with fact, that it should be impossible to capture event before it occurs. Lastly, the window size for the NAB detection algorithm is set to 60 seconds to reflect the dynamics of the transition as presented in the slides to enable detection of the start of the transition phase which is also marked as change-point.
 
 ### 2. Outlier detection problem
 
@@ -110,7 +110,7 @@ This leaderboard shows performance of algorithms on test set, unlike original le
 |T-squared | 0.66 | 19.21 | 42.6
 |LSTM-VAE | 0.56 | 9.13 | 55.03
 |Vanilla LSTM | 0.54 | 12.54 | 59.53
-|MSCRED | 0.40 | 31.04 | 69,05
+|MSCRED | 0.36 | 49.94 | 69.88
 |Vanilla AE | 0.39 | 2.59 | 75.15
 |Isolation forest | 0.29 | 2.56 | 82.89
 |Null detector | 0  | 0 | 100
@@ -123,16 +123,16 @@ This leaderboard shows performance of algorithms on test set, unlike original le
 | Algorithm | NAB (standard) | NAB (lowFP) | NAB (LowFN) | Number of Missed CPs | Number of FPs
 |---|---|---|---|---|---
 |Perfect detector | 100 | 100 | 100 | 0 | 0
-|LSTM-AE |17.44 | 13.28 | 20.03 | 76 | 39
-|Isolation forest | 13.74 | 5.82 | 18.08 | 60 | 74
-|T-squared+Q (PCA-based) | 13.57 | -0.22 | 19.55 | 67 | 121
-|T-squared | 11.98 | 0,99 | 16.65 | 70 | 106
-|Conv-AE | 10.69 | 8.35 | 12.38 | 82 | 18
-|Vanilla AE | 5.95 | -0.91 | 8.69 | 101 | 64
-|Vanilla LSTM | 3.83 | -14.95 | 10.95 | 79 | 165
-|MSET | 2.26 | -2.19 | 4.92 | 90 | 23
-|MSCRED | 1.28 | -54.72 | 22.99 | 19 | 644
-|ArimaFD | 0.27 | -2.55 | 1.75 | 100 | 40
+|LSTM-AE | 23.51 | 20.11 | 25.91 | 88 | 69
+|Isolation forest | 26.16 | 19.5 | 30.82 | 76 | 135
+|T-squared+Q (PCA-based) | 25.35 | 14.51 | 31.33 | 72 | 232
+|T-squared | 19.54 | 10.2 | 24.31 | 70 | 106
+|Conv-AE | 23.61 | 21.54 | 27.55 | 82 | 23
+|Vanilla AE | 11.41 | 6.53 | 13.91 | 103 | 106
+|Vanilla LSTM | 11.31 | -3.8 | 17.25 | 90 | 342
+|MSET | 13.84 | 10.22 | 17.37 | 96 | 66
+|MSCRED | 32.42 | 16.53 | 40.28 | 55 | 342
+|ArimaFD | -0.09 | -0.17 | -0.06 | 127 | 2
 |Null detector | 0 | 0 | 0 | - | -
 
 ## Notebooks

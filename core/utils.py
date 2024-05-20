@@ -69,11 +69,11 @@ def plot_results(*true_pred_pairs: tuple[pd.Series, pd.Series]):
     fig, axs = plt.subplots(n, 1, figsize=(12, 3 * n), sharex=True)
     if not isinstance(axs, (list | np.ndarray)):
         axs = [axs]
-    for i, (true, pred) in enumerate(true_pred_pairs):
-        axs[i].plot(true, label="True", marker="o", markersize=5)
-        axs[i].plot(pred, label="Predicted", marker="x", markersize=5)
-        axs[i].set_title(f"{true.name} detection")
-        axs[i].legend()
+    for ax, (true, pred) in zip(axs, true_pred_pairs):
+        ax.plot(true, label="True", marker="o", markersize=5)
+        ax.plot(pred, label="Predicted", marker="x", markersize=5)
+        ax.set_title(f"{true.name} detection")
+        ax.legend()
     fig.show()
 
 
