@@ -260,6 +260,7 @@ class T2:
         # removing constant columns
         initial_cols_number = len(x.columns)
         x = x.loc[:, (x != x.iloc[0]).any()]
+        self._feature_names_in = x.columns
         if initial_cols_number > len(x.columns):
             print("Constant columns removed")
 
@@ -341,6 +342,7 @@ class T2:
         """
 
         x = x.copy()
+        x = x.loc[:, self._feature_names_in]
         if self.scaling:
             x_ = self.scaler.transform(x)
         else:
