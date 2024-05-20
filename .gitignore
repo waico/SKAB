@@ -1,10 +1,5 @@
 .DS_Store
-data/.DS_Store
-src/.DS_Store
-docs/.DS_Store
-notebooks/.DS_Store
-notebooks/venv/
-notebooks/*.h5
+*.pickle
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

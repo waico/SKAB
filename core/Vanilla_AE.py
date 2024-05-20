@@ -1,8 +1,13 @@
-from tensorflow.keras.layers import Input, Dense, BatchNormalization, Activation
+from tensorflow.keras.callbacks import EarlyStopping
+from tensorflow.keras.layers import (
+    Activation,
+    BatchNormalization,
+    Dense,
+    Input,
+)
 from tensorflow.keras.models import Model
 from tensorflow.keras.optimizers import Adam
-from tensorflow.keras.callbacks import EarlyStopping
-import tensorflow as tf
+
 
 class Vanilla_AE:
     """
@@ -17,12 +22,12 @@ class Vanilla_AE:
             - Number of neurons in the first decoder layer
             - Learning rate for the optimizer
             - Batch size for training
-            
+
     Attributes
     ----------
     model : tensorflow.keras.models.Model
         The autoencoder model.
-                
+
     Examples
     -------
     >>> from Vanilla_AE import AutoEncoder
@@ -30,56 +35,68 @@ class Vanilla_AE:
     >>> autoencoder.fit(train_data)
     >>> predictions = autoencoder.predict(test_data)
     """
-    
+
     def __init__(self, params):
         self.param = params
 
-        
     def _build_model(self):
         self._Random(0)
 
         input_dots = Input(shape=(self.shape,))
         x = Dense(self.param[0])(input_dots)
         x = BatchNormalization()(x)
-        x = Activation('relu')(x)
+        x = Activation("relu")(x)
 
         x = Dense(self.param[1])(x)
         x = BatchNormalization()(x)
-        x = Activation('relu')(x)
+        x = Activation("relu")(x)
 
-        bottleneck = Dense(self.param[2], activation='linear')(x)
+        bottleneck = Dense(self.param[2], activation="linear")(x)
 
         x = Dense(self.param[1])(bottleneck)
         x = BatchNormalization()(x)
-        x = Activation('relu')(x)
+        x = Activation("relu")(x)
 
         x = Dense(self.param[0])(x)
         x = BatchNormalization()(x)
-        x = Activation('relu')(x)
+        x = Activation("relu")(x)
 
-        out = Dense(self.shape, activation='linear')(x)
+        out = Dense(self.shape, activation="linear")(x)
 
         model = Model(input_dots, out)
-        model.compile(optimizer=Adam(self.param[3]), loss='mae', metrics=["mse"])
+        model.compile(
+            optimizer=Adam(self.param[3]), loss="mae", metrics=["mse"]
+        )
         self.model = model
-        
-        return model
-        
-    def _Random(self, seed_value):
 
+        return model
+
+    def _Random(self, seed_value):
         import os
-        os.environ['PYTHONHASHSEED'] = str(seed_value)
+
+        os.environ["PYTHONHASHSEED"] = str(seed_value)
 
         import random
+
         random.seed(seed_value)
 
         import numpy as np
+
         np.random.seed(seed_value)
 
         import tensorflow as tf
+
         tf.random.set_seed(seed_value)
-    
-    def fit(self, data, early_stopping=True, validation_split=0.2, epochs=40, verbose=0, shuffle=True):
+
+    def fit(
+        self,
+        data,
+        early_stopping=True,
+        validation_split=0.2,
+        epochs=40,
+        verbose=0,
+        shuffle=True,
+    ):
         """
         Train the autoencoder model on the provided data.
 
@@ -104,15 +121,17 @@ class Vanilla_AE:
         callbacks = []
         if early_stopping:
             callbacks.append(EarlyStopping(patience=3, verbose=0))
-        self.model.fit(data, data,
-                       validation_split=validation_split,
-                       epochs=epochs,
-                       batch_size=self.param[4],
-                       verbose=verbose,
-                       shuffle=shuffle,
-                       callbacks=callbacks
-                      )
-    
+        self.model.fit(
+            data,
+            data,
+            validation_split=validation_split,
+            epochs=epochs,
+            batch_size=self.param[4],
+            verbose=verbose,
+            shuffle=shuffle,
+            callbacks=callbacks,
+        )
+
     def predict(self, data):
         """
         Generate predictions using the trained autoencoder model.
@@ -126,8 +145,6 @@ class Vanilla_AE:
         -------
         numpy.ndarray
             The reconstructed output predictions.
-        """   
-        
-        return self.model.predict(data)
+        """
 
-    
+        return self.model.predict(data)

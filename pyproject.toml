@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "notebooks"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.11"
+arimafd = {git = "https://github.com/InSuperposition/arimafd.git", branch = "master"}
+tensorflow = "^2.15.0"
+sympy = "^1.12"
+lightgbm = "^4.3.0"
+matplotlib = "^3.8.4"
+ipykernel = "^6.29.4"
+ipython = "^8.24.0"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.7.0"
+ruff = "^0.4.2"
+ipykernel = "^6.29.4"
+pytest = "^8.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

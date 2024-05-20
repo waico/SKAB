@@ -1,6 +1,6 @@
 # Anomaly Detection Algorithms
 
-### Hotelling's T-squared statistic 
+### Hotelling's T-squared statistic
 Hotelling's statistic is one of the most popular statistical process control techniques. It is based on the Mahalanobis distance.
 Generally, it measures the distance between the new vector of values and the previously defined vector of normal values additionally using variances.
 
@@ -53,15 +53,15 @@ A reconstruction variational autoencoder (VAE) model to detect anomalies in time
 
 
 ### MSCRED
-MSCRED - Multi-Scale Convolutional Recurrent Encoder-Decoder first constructs multi-scale (resolution) signature matrices to characterize multiple levels of the system statuses across different time steps. 
-In particular, different levels of the system statuses are used to indicate the severity of different abnormal incidents. 
-Subsequently, given the signature matrices, a convolutional encoder is employed to encode the inter-sensor (time series) correlations patterns and an attention based Convolutional Long-Short Term Memory (ConvLSTM) network is developed to capture the temporal patterns. 
-Finally, with the feature maps which encode the inter-sensor correlations and temporal information, a convolutional decoder is used to reconstruct the signature matrices and the residual signature matrices are further utilized to detect and diagnose anomalies. 
+MSCRED - Multi-Scale Convolutional Recurrent Encoder-Decoder first constructs multi-scale (resolution) signature matrices to characterize multiple levels of the system statuses across different time steps.
+In particular, different levels of the system statuses are used to indicate the severity of different abnormal incidents.
+Subsequently, given the signature matrices, a convolutional encoder is employed to encode the inter-sensor (time series) correlations patterns and an attention based Convolutional Long-Short Term Memory (ConvLSTM) network is developed to capture the temporal patterns.
+Finally, with the feature maps which encode the inter-sensor correlations and temporal information, a convolutional decoder is used to reconstruct the signature matrices and the residual signature matrices are further utilized to detect and diagnose anomalies.
 The intuition is that MSCRED may not reconstruct the signature matrices well if it never observes similar system statuses before.
 
 [[notebook]](https://github.com/waico/SKAB/blob/master/notebooks/MSCRED.ipynb) [[paper]](https://ojs.aaai.org/index.php/AAAI/article/view/3942)
 
-### MSET 
+### MSET
 MSET - multivariate state estimation technique is a non-parametric and statistical modeling method, which calculates the estimated values based on the weighted average of historical data. In terms of procedure, MSET is similar to some nonparametric regression methods, such as, auto-associative kernel regression.
 
 [[notebook]](https://github.com/waico/SKAB/blob/master/notebooks/MSET.ipynb) [[paper]](https://inis.iaea.org/collection/NCLCollectionStore/_Public/32/025/32025817.pdf)

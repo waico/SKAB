@@ -1,10 +1,10 @@
-from sklearn.preprocessing import StandardScaler
 import numpy as np
 import pandas as pd
-import tensorflow as tf
 from scipy import linalg as spla
+from sklearn.preprocessing import StandardScaler
 
-class MSET: 
+
+class MSET:
     """
     MSET - multivariate state estimation technique is a non-parametric and statistical modeling method, which calculates the estimated values based on the weighted average of historical data. In terms of procedure, MSET is similar to some nonparametric regression methods, such as, auto-associative kernel regression.
 
@@ -23,27 +23,30 @@ class MSET:
     >>> model.fit(data)
     >>> prediction = model.predict(test_data)
     """
-    
+
     def __init__(self):
         self._Random(0)
-        
+
     def _build_model(self):
         self.SS = StandardScaler()
-        
-    def _Random(self, seed_value): 
 
+    def _Random(self, seed_value):
         import os
-        os.environ['PYTHONHASHSEED'] = str(seed_value)
+
+        os.environ["PYTHONHASHSEED"] = str(seed_value)
 
         import random
+
         random.seed(seed_value)
 
         import numpy as np
+
         np.random.seed(seed_value)
 
         import tensorflow as tf
+
         tf.random.set_seed(seed_value)
-        
+
     def calc_W(self, X_obs):
         """
         Calculate the weight matrix W.
@@ -58,15 +61,15 @@ class MSET:
         numpy.ndarray
             Weight matrix W.
         """
-        
+
         DxX_obs = self.otimes(self.D, X_obs)
-        try:
-            W = spla.lu_solve(self.LU_factors, DxX_obs)
-        except:
-            W = np.linalg.solve(self.DxD, DxX_obs)
-    
+        # try:
+        W = spla.lu_solve(self.LU_factors, DxX_obs)
+        # except:
+        #     W = np.linalg.solve(self.DxD, DxX_obs)
+
         return W
-    
+
     def otimes(self, X, Y):
         """
         Compute the outer product of two matrices X and Y.
@@ -84,26 +87,26 @@ class MSET:
             Outer product of X and Y.
         """
 
-        m1,n = np.shape(X)
-        m2,p = np.shape(Y)
+        m1, n = np.shape(X)
+        m2, p = np.shape(Y)
 
-        if m1!=m2:
-            raise Exception('dimensionality mismatch between X and Y.')
+        if m1 != m2:
+            raise Exception("dimensionality mismatch between X and Y.")
 
-        Z = np.zeros( (n,p) )
+        Z = np.zeros((n, p))
 
         if n != p:
             for i in range(n):
                 for j in range(p):
-                    Z[i,j] = self.kernel(X[:,i], Y[:,j])
+                    Z[i, j] = self.kernel(X[:, i], Y[:, j])
         else:
-            for i in range(n):     
+            for i in range(n):
                 for j in range(i, p):
-                    Z[i,j] = self.kernel(X[:,i], Y[:,j])
-                    Z[j,i] = Z[i,j]
+                    Z[i, j] = self.kernel(X[:, i], Y[:, j])
+                    Z[j, i] = Z[i, j]
 
         return Z
-    
+
     def kernel(self, x, y):
         """
         Compute the kernel function value.
@@ -121,12 +124,14 @@ class MSET:
             Kernel function s(x,y) = 1 - ||x-y||/(||x|| + ||y||) value.
         """
 
-        if all(x==y):
-            return 1.
+        if all(x == y):
+            return 1.0
         else:
-            return 1. - np.linalg.norm(x-y)/(np.linalg.norm(x) + np.linalg.norm(y))
-    
-    def fit(self, df, train_start = None, train_stop = None): 
+            return 1.0 - np.linalg.norm(x - y) / (
+                np.linalg.norm(x) + np.linalg.norm(y)
+            )
+
+    def fit(self, df, train_start=None, train_stop=None):
         """
         Train the MSET model on the provided data.
 
@@ -145,10 +150,10 @@ class MSET:
         """
 
         self.model = self._build_model()
-            
-        self.D = df[train_start:train_stop].values.T.copy() 
+
+        self.D = df[train_start:train_stop].values.T.copy()
         self.D = self.SS.fit_transform(self.D.T).T
-        
+
         self.DxD = self.otimes(self.D, self.D)
         self.LU_factors = spla.lu_factor(self.DxD)
 
@@ -166,13 +171,19 @@ class MSET:
         pandas.DataFrame
             Predicted output data.
         """
-        
-        X_obs = data.values.T.copy() 
+
+        X_obs = data.values.T.copy()
         X_obs = self.SS.transform(X_obs.T).T
 
         pred = np.zeros(X_obs.T.shape)
-        
+
         for i in range(X_obs.shape[1]):
-            pred[[i],:] = (self.D @ self.calc_W(X_obs[:,i].reshape([-1,1]))).T
-            
-        return pd.DataFrame(self.SS.inverse_transform(pred), index=data.index, columns=data.columns)
+            pred[[i], :] = (
+                self.D @ self.calc_W(X_obs[:, i].reshape([-1, 1]))
+            ).T
+
+        return pd.DataFrame(
+            self.SS.inverse_transform(pred),
+            index=data.index,
+            columns=data.columns,
+        )
