@@ -44,6 +44,8 @@ Here we propose the leaderboards for SKAB v0.9 for both outlier and changepoint 
 
 ❗️All results (excl. ruptures and CPDE) are calculated for out-of-box algorithms without any hyperparameters tuning.
 
+Information about the metrics for anomaly detection and intuition behind the metrics selection can be found in [this](https://medium.com/@katser/a-review-of-anomaly-detection-metrics-with-a-lot-of-related-information-736d88774712) medium article.
+
 ### Outlier detection problem
 *Sorted by F1; for F1 bigger is better; both for FAR (False Alarm Rate) and MAR (Missing Alarm Rate) less is better*  
 | Algorithm | F1 | FAR, % | MAR, %
