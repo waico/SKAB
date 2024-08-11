@@ -14,9 +14,9 @@ We propose the [Skoltech](https://www.skoltech.ru/en) Anomaly Benchmark (SKAB) d
 SKAB consists of the following artifacts:
 
 1. [Datasets](#datasets)
-2. [Leaderboards](#Leaderboard #1 - Proposed Leaderboard) for oultier detection and changepoint detection problems
+2. [Proposed Leaderboard](#proposed-leaderboard) for outlier detection and changepoint detection problems
 3. Python modules for algorithms’ evaluation (now evaluation modules are being imported from [TSAD](https://github.com/waico/tsad) framework, while the details regarding the evaluation process are presented [here](https://github.com/waico/tsad/blob/main/examples/Evaluating.ipynb))
-4. Python [core](https://github.com/MarekWadinger/SKAB/tree/master/core) with algorithms’ implementation
+4. Python [core](core/) with algorithms’ implementation
 5. Python [notebooks](#notebooks) with anomaly detection pipeline implementation for various algorithms
 
 All the details about SKAB are presented in the following artifacts:
@@ -41,11 +41,9 @@ The SKAB v0.9 corpus contains 35 individual data files in .csv format (datasets)
 - `anomaly` - Shows if the point is anomalous (0 or 1)
 - `changepoint` - Shows if the point is a changepoint for collective anomalies (0 or 1)
 
-Exploratory Data Analysis (EDA) for SKAB is presented [here](https://github.com/waico/SKAB/blob/master/notebooks/EDA.ipynb). Russian version of EDA is available on [kaggle](https://www.kaggle.com/newintown/eda-example).
+Exploratory Data Analysis (EDA) for SKAB is presented [here (tbd)]. Russian version of EDA is available on [kaggle](https://www.kaggle.com/newintown/eda-example).
 
 ℹ️We have also made a *SKAB teaser* that is a small dataset collected separately but from the same testbed. SKAB teaser is made just for learning/teaching purposes and contains only 4 collective anomalies. All the information is available on [kaggle](https://www.kaggle.com/datasets/yuriykatser/skoltech-anomaly-benchmark-skab-teaser).
-
-## Leaderboards
 
 ## Proposed Leaderboard
 
@@ -77,21 +75,21 @@ Information about the metrics for anomaly detection and intuition behind the met
 
 ### Changepoint detection problem
 
-*Sorted by NAB (standard); for all metrics bigger is better*
+*Sorted by NAB (standard); for NAB (standard), NAB (LowFP), NAB (LowFN) bigger is better, for Number of Missed CPs, Number of FPs lower is better*
 *The current leaderboard is obtained with the window size for the NAB detection algorithm equal to 60 sec and to the right side of true change point.*
 
-| Algorithm | NAB (standard) | NAB (lowFP) | NAB (LowFN) | Number of Missed CPs | Number of FPs
+| Algorithm | NAB (standard) | NAB (LowFP) | NAB (LowFN) | Number of Missed CPs | Number of FPs
 |---|---|---|---|---|---
 |Perfect detector | 100 | 100 | 100 | 0 | 0
-|LSTM-AE | 23.51 | 20.11 | 25.91 | 88 | 69
+|MSCRED | 32.42 | 16.53 | 40.28 | 55 | 342
 |Isolation forest | 26.16 | 19.5 | 30.82 | 76 | 135
 |T-squared+Q (PCA-based) | 25.35 | 14.51 | 31.33 | 72 | 232
-|T-squared | 19.54 | 10.2 | 24.31 | 70 | 106
 |Conv-AE | 23.61 | 21.54 | 27.55 | 82 | 23
+|LSTM-AE | 23.51 | 20.11 | 25.91 | 88 | 69
+|T-squared | 19.54 | 10.2 | 24.31 | 70 | 106
+|MSET | 13.84 | 10.22 | 17.37 | 96 | 66
 |Vanilla AE | 11.41 | 6.53 | 13.91 | 103 | 106
 |Vanilla LSTM | 11.31 | -3.8 | 17.25 | 90 | 342
-|MSET | 13.84 | 10.22 | 17.37 | 96 | 66
-|MSCRED | 32.42 | 16.53 | 40.28 | 55 | 342
 |ArimaFD | -0.09 | -0.17 | -0.06 | 127 | 2
 |Null detector | 0 | 0 | 0 | - | -
 
