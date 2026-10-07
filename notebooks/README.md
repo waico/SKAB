@@ -65,3 +65,8 @@ The intuition is that MSCRED may not reconstruct the signature matrices well if 
 MSET - multivariate state estimation technique is a non-parametric and statistical modeling method, which calculates the estimated values based on the weighted average of historical data. In terms of procedure, MSET is similar to some nonparametric regression methods, such as, auto-associative kernel regression.
 
 [[notebook]](https://github.com/waico/SKAB/blob/master/notebooks/MSET.ipynb) [[paper]](https://inis.iaea.org/collection/NCLCollectionStore/_Public/32/025/32025817.pdf)
+
+### EZH
+EZH - EWMA-z score with hysteresis - is a one-class, causal detector without a training loop. For each dataset it fits 15 numbers on the first 400 (anomaly-free) rows: the mean and standard deviation of six channels (all except Temperature and Thermocouple), a reference score, and a reference rolling standard deviation for the two thermal channels. The score is the largest deviation of the exponentially smoothed channels (alpha 0.2) from their training mean, in training standard deviations and relative to its training maximum; the thermal channels enter only through their 30-row rolling standard deviation relative to its training 95th percentile. The alarm switches on above 2.5 and off below 2.0, and stays on for 40 more rows. Constants were chosen on 10 of the 34 files.
+
+[[notebook]](https://github.com/waico/SKAB/blob/master/notebooks/EZH.ipynb)
