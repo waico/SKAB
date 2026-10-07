@@ -61,6 +61,7 @@ Information about the metrics for anomaly detection and intuition behind the met
 | Algorithm | F1 | FAR, % | MAR, %
 |---|---|---|---
 |Perfect detector | 1 | 0 | 0
+|EZH† | 0.83 | 11.3 | 22.84
 |Conv-AE |0.78 | 13.55 | 28.02
 |MSET |0.78 | 39.73 | 14.13
 |T-squared+Q (PCA-based) | 0.76 | 26.62 | 24.92
@@ -73,6 +74,8 @@ Information about the metrics for anomaly detection and intuition behind the met
 |Isolation forest | 0.29 | 2.56 | 82.89
 |Null detector | 0  | 0 | 100
 
+†EZH: its few design constants were chosen on 10 of the 34 files (other/7, 10, 12, 14; valve1/1, 5, 7, 8, 15; valve2/3), so this row is not a hold-out result. On the other 24 files its F1 is 0.79 against 0.76 for Conv-AE (mean of 10 re-runs of its notebook; paired file-bootstrap difference +0.02, 95 % interval -0.07 to +0.12).
+
 ### Changepoint detection problem
 
 *Sorted by NAB (standard); for NAB (standard), NAB (LowFP), NAB (LowFN) bigger is better, for Number of Missed CPs, Number of FPs lower is better*
@@ -82,6 +85,7 @@ Information about the metrics for anomaly detection and intuition behind the met
 |---|---|---|---|---|---
 |Perfect detector | 100 | 100 | 100 | 0 | 0
 |MSCRED | 32.42 | 16.53 | 40.28 | 55 | 342
+|EZH† | 27.24 | 25.41 | 30.76 | 79 | 20
 |Isolation forest | 26.16 | 19.5 | 30.82 | 76 | 135
 |T-squared+Q (PCA-based) | 25.35 | 14.51 | 31.33 | 72 | 232
 |Conv-AE | 23.61 | 21.54 | 27.55 | 82 | 23
@@ -92,6 +96,8 @@ Information about the metrics for anomaly detection and intuition behind the met
 |Vanilla LSTM | 11.31 | -3.8 | 17.25 | 90 | 342
 |ArimaFD | -0.09 | -0.17 | -0.06 | 127 | 2
 |Null detector | 0 | 0 | 0 | - | -
+
+†EZH was designed for the outlier problem only; its changepoints are the edges of its predicted outliers, and nothing was tuned for this table. See the note under the outlier table.
 
 ## Notebooks
 
@@ -105,6 +111,7 @@ The [notebooks](notebooks/) folder contains jupyter notebooks with the code for 
 - Conv-AE - *Convolutional Autoencoder*
 - MSCRED - *Multi-Scale Convolutional Recurrent Encoder-Decoder*
 - MSET - *Multivariate State Estimation Technique*
+- EZH - *EWMA-z score with hysteresis (one-class, causal, 15 fitted numbers per dataset)*
 
 Additionally on the leaderboard were shown the externally calculated results of the following algorithms:
 
