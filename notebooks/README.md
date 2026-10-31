@@ -65,3 +65,8 @@ The intuition is that MSCRED may not reconstruct the signature matrices well if 
 MSET - multivariate state estimation technique is a non-parametric and statistical modeling method, which calculates the estimated values based on the weighted average of historical data. In terms of procedure, MSET is similar to some nonparametric regression methods, such as, auto-associative kernel regression.
 
 [[notebook]](https://github.com/waico/SKAB/blob/master/notebooks/MSET.ipynb) [[paper]](https://inis.iaea.org/collection/NCLCollectionStore/_Public/32/025/32025817.pdf)
+
+### APWR-RNS (proposed)
+APWR-RNS is a causal two-level change-point detector for industrial sensor streams. Its Level 1 change-point warnings are based on exact differences between 15-sample and preceding 60-sample windows over four physical sensor channels. The feature numerator is evaluated using five small, independently primality-checked APWR-catalog moduli and CRT consensus; Level 2 corroboration informs operational severity but does not suppress warnings. The first 400 readings per recording calibrate the thresholds, and the benchmark uses SKAB's own 60-second right-sided NAB scoring function. The proposed Standard score is 58.07 on all 34 SKAB experiments; five public recordings informed prototype selection.
+
+[[notebook]](APWR_RNS.ipynb) [[implementation]](../core/apwr_rns/) [[methods]](../docs/APWR_RNS_submission.md)

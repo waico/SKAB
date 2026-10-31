@@ -1,0 +1,52 @@
+name: Verify APWR-RNS on SKAB
+on:
+  push:
+    branches:
+      - submission/apwr-rns-industrial-changepoints
+  pull_request:
+    paths:
+      - 'core/apwr_rns/**'
+      - 'tests/test_apwr_rns.py'
+      - 'notebooks/APWR_RNS.ipynb'
+      - 'docs/APWR_RNS_submission.md'
+      - '.github/workflows/apwr-rns.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  skab-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out public SKAB fork
+        uses: actions/checkout@v4
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install official metric dependencies
+        run: python -m pip install numpy pandas matplotlib
+      - name: Exact RNS and causal detector unit tests
+        run: python -m unittest discover -s tests -p 'test_apwr_rns.py' -v
+      - name: Replay official SKAB metric on all recordings
+        run: |
+          python -m core.apwr_rns.benchmark --skab-root . --out "$RUNNER_TEMP/apwr_rns.json"
+      - name: Check published replay metrics
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          report = json.loads((Path(os.environ['RUNNER_TEMP']) / 'apwr_rns.json').read_text())
+          assert report['scores'] == {'Standard': 58.07, 'LowFP': 49.35, 'LowFN': 66.27}
+          assert report['change_points'] == 127
+          assert report['missed_change_points'] == 22
+          assert report['false_alarms'] == 161
+          assert len(report['files']) == 34
+          print('SKAB official metrics match verified reference:', report['scores'])
+          PY
+      - name: Save public replay evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: apwr-rns-skab-replay
+          path: ${{ runner.temp }}/apwr_rns.json
+          retention-days: 30
