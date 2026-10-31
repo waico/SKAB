@@ -1,0 +1,530 @@
+{
+  "benchmark": "waico/SKAB",
+  "change_points": 127,
+  "detector": "causal APWR RNS 15-sample-vs-60-prior-window; 99th pct; 3-consecutive; 60s cooldown",
+  "false_alarms": 161,
+  "files": [
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/other/1.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 2,
+      "predicted_warning_points": 6,
+      "scored_rows": 345,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/other/10.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 4,
+      "predicted_warning_points": 12,
+      "scored_rows": 927,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/other/11.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 4,
+      "predicted_warning_points": 13,
+      "scored_rows": 790,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/other/12.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 4,
+      "predicted_warning_points": 10,
+      "scored_rows": 648,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/other/13.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 4,
+      "predicted_warning_points": 2,
+      "scored_rows": 523,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/other/14.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 3,
+      "predicted_warning_points": 5,
+      "scored_rows": 505,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/other/2.csv",
+      "has_anomalous_training_rows": true,
+      "labelled_change_points": 2,
+      "predicted_warning_points": 2,
+      "scored_rows": 380,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/other/3.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 4,
+      "predicted_warning_points": 5,
+      "scored_rows": 737,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/other/4.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 3,
+      "predicted_warning_points": 6,
+      "scored_rows": 791,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/other/5.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 2,
+      "predicted_warning_points": 9,
+      "scored_rows": 755,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/other/6.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 4,
+      "predicted_warning_points": 11,
+      "scored_rows": 747,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/other/7.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 4,
+      "predicted_warning_points": 10,
+      "scored_rows": 690,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/other/8.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 4,
+      "predicted_warning_points": 5,
+      "scored_rows": 747,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/other/9.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 4,
+      "predicted_warning_points": 12,
+      "scored_rows": 744,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/valve1/0.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 4,
+      "predicted_warning_points": 8,
+      "scored_rows": 747,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/valve1/1.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 4,
+      "predicted_warning_points": 7,
+      "scored_rows": 745,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/valve1/10.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 4,
+      "predicted_warning_points": 8,
+      "scored_rows": 746,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/valve1/11.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 4,
+      "predicted_warning_points": 10,
+      "scored_rows": 741,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/valve1/12.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 4,
+      "predicted_warning_points": 11,
+      "scored_rows": 740,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/valve1/13.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 4,
+      "predicted_warning_points": 5,
+      "scored_rows": 740,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/valve1/14.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 4,
+      "predicted_warning_points": 8,
+      "scored_rows": 739,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/valve1/15.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 4,
+      "predicted_warning_points": 11,
+      "scored_rows": 750,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/valve1/2.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 3,
+      "predicted_warning_points": 4,
+      "scored_rows": 675,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/valve1/3.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 4,
+      "predicted_warning_points": 9,
+      "scored_rows": 748,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/valve1/4.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 4,
+      "predicted_warning_points": 8,
+      "scored_rows": 695,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/valve1/5.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 4,
+      "predicted_warning_points": 4,
+      "scored_rows": 754,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/valve1/6.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 4,
+      "predicted_warning_points": 4,
+      "scored_rows": 754,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/valve1/7.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 4,
+      "predicted_warning_points": 7,
+      "scored_rows": 694,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/valve1/8.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 4,
+      "predicted_warning_points": 9,
+      "scored_rows": 744,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/valve1/9.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 4,
+      "predicted_warning_points": 12,
+      "scored_rows": 748,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/valve2/0.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 4,
+      "predicted_warning_points": 11,
+      "scored_rows": 725,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/valve2/1.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 4,
+      "predicted_warning_points": 8,
+      "scored_rows": 663,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/valve2/2.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 4,
+      "predicted_warning_points": 9,
+      "scored_rows": 729,
+      "training_rows": 400
+    },
+    {
+      "apwr_prime_moduli": [
+        474343,
+        484621,
+        486103,
+        508037,
+        514103
+      ],
+      "file": "data/valve2/3.csv",
+      "has_anomalous_training_rows": false,
+      "labelled_change_points": 4,
+      "predicted_warning_points": 7,
+      "scored_rows": 595,
+      "training_rows": 400
+    }
+  ],
+  "mean_detection_delay_seconds": 23.942857,
+  "missed_change_points": 22,
+  "scores": {
+    "LowFN": 66.27,
+    "LowFP": 49.35,
+    "Standard": 58.07
+  },
+  "scoring_function": "core.metrics.chp_score",
+  "scoring_profile": "NAB, 60s righter",
+  "training_rows_per_file": 400,
+  "upstream_sha": "b2c0d46c2971dcbfe71e26087b6d231998bb91c2",
+  "note": "SKAB-owned evaluator replay on 34 public recordings; benchmark ranking requires upstream maintainer acceptance"
+}
