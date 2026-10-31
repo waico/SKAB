@@ -81,6 +81,7 @@ Information about the metrics for anomaly detection and intuition behind the met
 | Algorithm | NAB (standard) | NAB (LowFP) | NAB (LowFN) | Number of Missed CPs | Number of FPs
 |---|---|---|---|---|---
 |Perfect detector | 100 | 100 | 100 | 0 | 0
+|APWR-RNS† | **58.07** | **49.35** | **66.27** | **22** | **161**
 |MSCRED | 32.42 | 16.53 | 40.28 | 55 | 342
 |Isolation forest | 26.16 | 19.5 | 30.82 | 76 | 135
 |T-squared+Q (PCA-based) | 25.35 | 14.51 | 31.33 | 72 | 232
@@ -92,6 +93,8 @@ Information about the metrics for anomaly detection and intuition behind the met
 |Vanilla LSTM | 11.31 | -3.8 | 17.25 | 90 | 342
 |ArimaFD | -0.09 | -0.17 | -0.06 | 127 | 2
 |Null detector | 0 | 0 | 0 | - | -
+
+† **APWR-RNS — proposed, awaiting maintainer review.** The results use the first 400 rows of each of the 34 public SKAB recordings for calibration, and SKAB's own `core.metrics.chp_score` with a 60-second right-sided window. Five recordings informed prototype selection; the remaining 29 form a recording-level evaluation, not a private blind holdout. The data include an anomalous training partition in `other/2.csv`. See [methods and reproduction](docs/APWR_RNS_submission.md) and the [executable notebook](notebooks/APWR_RNS.ipynb). This row becomes part of the accepted leaderboard only after maintainer approval.
 
 ## Notebooks
 
